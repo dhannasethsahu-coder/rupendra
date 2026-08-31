@@ -14,3 +14,4 @@ dnspython
 pyOpenSSL
 publicsuffix2
 pygments
+readability-lxml
