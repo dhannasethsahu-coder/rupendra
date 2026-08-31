@@ -1,0 +1,435 @@
+{
+  "url": "https://yesnofree.com",
+  "timestamp": "2026-08-19T09:43:43.692594",
+  "seo_analysis": {
+    "title": "Mystic Minute Oracle",
+    "meta_description": "Mystic Minute Oracle - A digital chronomancy tool for yes/no answers based on time patterns. Gain insights for your decisions.",
+    "h1_count": 1,
+    "h1_content": [
+      "Mystic Minute Oracle"
+    ],
+    "total_images": 0,
+    "images_with_alt": 0,
+    "internal_links": 0,
+    "external_links": 4,
+    "mobile_friendly": true
+  },
+  "security_analysis": {
+    "has_ssl": true,
+    "X-Frame-Options": false,
+    "X-Content-Type-Options": false,
+    "Strict-Transport-Security": false
+  },
+  "performance_analysis": {
+    "load_time": 0.2,
+    "page_size_kb": 44.29,
+    "compression": true
+  },
+  "accessibility_analysis": {
+    "alt_text_missing": 0,
+    "heading_issues": [],
+    "color_contrast_issues": [],
+    "aria_issues": [],
+    "keyboard_issues": [],
+    "score": 100
+  },
+  "ux_analysis": {
+    "broken_links": [
+      {
+        "url": "https://en.wikipedia.org/wiki/Divination",
+        "status": 403
+      },
+      {
+        "url": "https://www.britannica.com/topic/Babylonian-religion",
+        "status": 403
+      },
+      {
+        "url": "https://www.psychologytoday.com/us/basics/intuition",
+        "status": 403
+      }
+    ],
+    "console_errors": [],
+    "mobile_issues": [],
+    "page_weight": 36.48,
+    "render_blocking": [
+      "Script https://cdn.tailwindcss.com is blocking page rendering"
+    ],
+    "issues": []
+  },
+  "cro_analysis": {
+    "cta_count": 0,
+    "cta_texts": [],
+    "trust_signals": [
+      "seek guidance from the universe\nthe mystic minute oracle uses the ancient art of chronomancy to pro",
+      "how to use the oracle\nthe mystic minute oracle harnesses chronomancy, the ancient practice of divin",
+      "tips for best results\n\n\ud83e\uddd8 clear your mind: take deep breaths or meditate to focus before asking.\n\ud83d\udd0d b",
+      "featured guidance & insights\n\n        within the flow of every hour lies a hidden message. ancient",
+      "history of time-based divination\n\n        from the astrologers of babylon to the shamans of the and"
+    ],
+    "forms": 0,
+    "checkout_steps": 0,
+    "issues": [],
+    "recommendations": [
+      "Add more clear calls-to-action to guide visitors through your sales funnel",
+      "Add a lead capture form to convert visitors into leads"
+    ]
+  },
+  "competitor_analysis": {},
+  "business_impact": {
+    "traffic_loss": 300,
+    "conversion_loss": 15,
+    "revenue_loss": 495.0,
+    "risk_level": "High",
+    "opportunities": [
+      "Improve SEO to gain approximately 300 more visitors/month",
+      "Improve conversions to increase sales by up to 15%",
+      "Potential revenue increase: $495.0/month"
+    ]
+  },
+  "business_logic": [],
+  "misconfigurations": [
+    {
+      "category": "Server Version Disclosure",
+      "severity": "Low",
+      "details": [
+        {
+          "server": "hcdn"
+        }
+      ],
+      "description": "Server version hcdn is exposed. This helps attackers identify vulnerabilities."
+    }
+  ],
+  "advanced_headers": {
+    "csp": {
+      "present": true,
+      "directives": {
+        "upgrade-insecure-requests": ""
+      },
+      "weaknesses": []
+    },
+    "cors": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "Medium",
+          "description": "CORS headers missing - API access may be restricted but also may cause issues"
+        }
+      ]
+    },
+    "permissions_policy": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "Low",
+          "description": "Permissions-Policy header missing - browser features may be abused"
+        }
+      ]
+    },
+    "issues": [
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "HSTS missing - HTTPS not enforced",
+        "header": "Strict-Transport-Security"
+      },
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "X-Content-Type-Options missing - MIME sniffing possible",
+        "header": "X-Content-Type-Options"
+      },
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "X-Frame-Options missing - clickjacking possible",
+        "header": "X-Frame-Options"
+      },
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "Referrer-Policy missing - referrer leakage possible",
+        "header": "Referrer-Policy"
+      }
+    ]
+  },
+  "cloud_issues": [],
+  "exploit_chains": [],
+  "js_secrets": [],
+  "ssrf_indicators": [],
+  "cve_matches": [],
+  "scores": {
+    "seo": 0.0,
+    "security": 0.0,
+    "performance": 0.0,
+    "overall": 0.0
+  },
+  "recommendations": [],
+  "advanced_security": {
+    "ssl_certificate": {
+      "issued_to": "yesnofree.com",
+      "issued_by": "US",
+      "expiry_date": "2026-10-30",
+      "days_remaining": 72,
+      "is_valid": true,
+      "expired": false,
+      "expiring_soon": false
+    },
+    "malware_check": {
+      "status": "Clean",
+      "details": [
+        "No malware signatures detected"
+      ]
+    },
+    "blacklist_check": {
+      "status": "Clean",
+      "details": [
+        "Not found on blacklists"
+      ]
+    },
+    "sql_injection": {
+      "vulnerable": false,
+      "details": [
+        "No query parameters to test"
+      ]
+    },
+    "xss": {
+      "vulnerable": false,
+      "details": [
+        "No XSS vulnerabilities detected"
+      ]
+    },
+    "security_headers": {
+      "X-Frame-Options": "Missing",
+      "X-Content-Type-Options": "Missing",
+      "Strict-Transport-Security": "Missing",
+      "Content-Security-Policy": "upgrade-insecure-requests",
+      "X-XSS-Protection": "Missing",
+      "Referrer-Policy": "Missing",
+      "Permissions-Policy": "Missing"
+    },
+    "email_security": {
+      "SPF": "Missing",
+      "DMARC": "Missing",
+      "DKIM": "Missing"
+    },
+    "open_ports": [
+      80,
+      443
+    ],
+    "sensitive_files": [],
+    "open_redirect": [],
+    "ssrf_indicators": [],
+    "jwt_analysis": [],
+    "critical_issues": [],
+    "warnings": [
+      "X-Frame-Options header missing - site is vulnerable to clickjacking",
+      "X-Content-Type-Options header missing - MIME type sniffing possible",
+      "HSTS header missing - no enforcement of HTTPS",
+      "SPF record missing - email spoofing possible",
+      "DMARC record missing - email security incomplete",
+      "DKIM record missing - email authentication weak"
+    ]
+  },
+  "recon": {
+    "domain": "yesnofree.com",
+    "subdomains": [
+      "ftp.yesnofree.com",
+      "www.yesnofree.com"
+    ],
+    "urls": [
+      "http://www.yesnofree.com:80/images/banner3.swf",
+      "http://www.yesnofree.com:80/language.htm",
+      "http://www.yesnofree.com:80/user/help.asp?action=yunshushuoming",
+      "http://www.yesnofree.com:80/default.asp?cateID=3",
+      "http://www.yesnofree.com:80/rings/submit.asp",
+      "http://www.yesnofree.com:80/index.asp",
+      "http://www.yesnofree.com:80/blog.htm",
+      "http://www.yesnofree.com:80/blogview.asp?logID=23&cateID=",
+      "http://www.yesnofree.com:80/grassland",
+      "http://www.yesnofree.com:80/images/smilies/icon_smile.gif",
+      "http://www.yesnofree.com:80/puterjam/blogrss1.asp",
+      "http://www.yesnofree.com:80/sort.asp?sort_id=5",
+      "http://www.yesnofree.com:80/language/images/swappic.js",
+      "http://www.yesnofree.com:80/user/about.asp?action=lxwm",
+      "http://www.yesnofree.com:80/sort.asp?sort_id=14",
+      "http://yesnofree.com:80/blogview.asp?logID=28",
+      "http://www.yesnofree.com:80/default.asp?page=1",
+      "http://www.yesnofree.com:80/puterjam/blogrss2.asp",
+      "http://www.yesnofree.com:80/blogview.asp?logID=26&cateID=",
+      "http://www.yesnofree.com:80/user/fk.asp",
+      "http://yesnofree.com:80/?log_Year=2004&log_Month=1",
+      "http://www.yesnofree.com:80/default.asp?cateID=4",
+      "http://www.yesnofree.com:80/language/images/scroll.js",
+      "http://www.yesnofree.com:80/sort.asp?sort_id=6",
+      "http://www.yesnofree.com:80/?log_Year=2005&log_Month=9",
+      "http://www.yesnofree.com:80/user/help.asp?action=tiaokuan",
+      "http://www.yesnofree.com:80/blogview.asp?logID=5&cateID=",
+      "http://www.yesnofree.com:80/default.asp?page=2",
+      "http://www.yesnofree.com:80/sort.asp?sort_id=11",
+      "http://www.yesnofree.com:80/attachment.asp",
+      "http://www.yesnofree.com:80/language/language.htm",
+      "http://www.yesnofree.com:80/default.asp?page=3",
+      "http://www.yesnofree.com:80/robots.txt",
+      "http://www.yesnofree.com:80/blogview.asp?logID=8",
+      "http://www.yesnofree.com:80/images/zh.css",
+      "http://www.yesnofree.com:80/?log_Year=2005&log_Month=10",
+      "http://www.yesnofree.com:80/blogview.asp?logID=19",
+      "http://www.yesnofree.com:80/trackback.asp?logID=20",
+      "http://www.yesnofree.com:80/member.asp?action=view&memName=admin",
+      "http://www.yesnofree.com:80/quit.asp",
+      "http://www.yesnofree.com:80/trackback.asp?logID=21",
+      "http://www.yesnofree.com:80/sort.asp?sort_id=12",
+      "http://www.yesnofree.com:80/blogview.asp?logID=4",
+      "http://yesnofree.com:80/images/icon_trackback.gif",
+      "http://www.yesnofree.com:80/blogview.asp?logID=18",
+      "http://www.yesnofree.com:80/member.asp",
+      "http://www.yesnofree.com:80/images/next.gif",
+      "http://yesnofree.com:80/?log_Year=2005&log_Month=2",
+      "http://www.yesnofree.com:80/blogview.asp?logID=26",
+      "http://www.yesnofree.com:80/?log_Year=2004&log_Month=8",
+      "http://www.yesnofree.com:80/blogview.asp?logID=4&cateID=",
+      "http://www.yesnofree.com:80/blogview.asp?logID=5",
+      "http://www.yesnofree.com:80/user/regshj.asp",
+      "http://www.yesnofree.com:80/user/admin/index.asp",
+      "http://yesnofree.com:80/blogview.asp?logID=30",
+      "http://www.yesnofree.com:80/commlist.asp?page=1",
+      "http://www.yesnofree.com:80/user/gouwu.asp?action=show&lx=1",
+      "http://yesnofree.com:80/?log_Year=2004&log_Month=12",
+      "http://www.yesnofree.com:80/blogview.asp?logID=31",
+      "http://www.yesnofree.com:80/?log_Year=2003&log_Month=10",
+      "http://www.yesnofree.com:80/style.css",
+      "http://www.yesnofree.com:80/blogview.asp?logID=12",
+      "http://www.yesnofree.com:80/views.asp?hw_id=20",
+      "http://www.yesnofree.com:80/blogview.asp?logID=6&cateID=",
+      "http://www.yesnofree.com:80/blogview.asp?logID=22&cateID=",
+      "http://www.yesnofree.com:80/?log_Year=2004&log_Month=10",
+      "http://www.yesnofree.com:80/book.asp",
+      "http://yesnofree.com:80/trackback.asp?logID=24",
+      "http://www.yesnofree.com:80/",
+      "http://www.yesnofree.com:80/default.asp",
+      "http://www.yesnofree.com:80/bloglinks.asp",
+      "http://www.yesnofree.com:80/?log_Year=2003&log_Month=12",
+      "http://www.yesnofree.com:80/user/mt_style.css",
+      "http://www.yesnofree.com:80/language/images/zh.css",
+      "http://www.yesnofree.com:80/default.asp?cateID=2",
+      "http://www.yesnofree.com:80/blogrss2.asp",
+      "http://www.yesnofree.com:80/default.asp?cateID=5",
+      "http://yesnofree.com:80/images/BttnRight.gif",
+      "http://yesnofree.com:80/?log_Year=2006&log_Month=1",
+      "http://www.yesnofree.com:80/images/month.gif",
+      "http://www.yesnofree.com:80/user/images/",
+      "http://www.yesnofree.com:80/images/newwin.gif",
+      "http://www.yesnofree.com:80/user/help.asp?action=feiyong",
+      "http://www.yesnofree.com:80/about.htm",
+      "http://www.yesnofree.com:80/blogview.asp?logID=24&cateID=",
+      "http://www.yesnofree.com:80/puterjam/",
+      "http://www.yesnofree.com:80/trackback.asp?logID=26",
+      "http://www.yesnofree.com:80/blogview.asp?logID=7",
+      "http://www.yesnofree.com:80/images/music.gif",
+      "http://www.yesnofree.com:80/user/images/css.css",
+      "http://www.yesnofree.com:80/user/help.asp?action=gouwuliucheng",
+      "http://www.yesnofree.com:80/wiki.htm",
+      "http://www.yesnofree.com:80/huaan/html/page/jiaoyichaxun.asp",
+      "http://www.yesnofree.com:80/blogview.asp?logID=6",
+      "http://www.yesnofree.com:80/blogview.asp?logID=7&cateID=",
+      "http://www.yesnofree.com:80/blogview.asp?logID=9",
+      "http://www.yesnofree.com:80/blogview.asp?logID=27",
+      "http://www.yesnofree.com:80/blogview.asp?logID=23",
+      "http://www.yesnofree.com:80/user/logout.asp",
+      "http://www.yesnofree.com:80/sort.asp?sort_id=9",
+      "http://www.yesnofree.com:80/images/face/face6.gif",
+      "http://www.yesnofree.com:80/sort.asp?sort_id=13",
+      "http://www.yesnofree.com:80/blogview.asp?logID=2",
+      "http://www.yesnofree.com:80/zh/members/appraise.htm",
+      "http://www.yesnofree.com:80/blogview.asp?logID=25",
+      "http://yesnofree.com:80/images/BttnLeft.gif",
+      "http://www.yesnofree.com:80/administrator/login.asp",
+      "http://www.yesnofree.com:80/comm/about.asp",
+      "http://www.yesnofree.com:80/trackback.asp?logID=18",
+      "http://www.yesnofree.com:80/images/swappic.js",
+      "http://www.yesnofree.com:80/blogview.asp?logID=24",
+      "http://www.yesnofree.com:80/?log_Year=2006&log_Month=3",
+      "http://www.yesnofree.com:80/commlist.asp?page=4",
+      "http://www.yesnofree.com:80/include/common.js",
+      "http://www.yesnofree.com:80/register.asp",
+      "http://www.yesnofree.com:80/user/user.asp",
+      "http://www.yesnofree.com:80/user/help.asp?action=vip",
+      "http://www.yesnofree.com:80/blogview.asp?logID=11",
+      "http://www.yesnofree.com:80/user/about.asp?action=jtcg",
+      "http://www.yesnofree.com:80/blogview.asp?logID=20",
+      "http://www.yesnofree.com:80/images/level3.gif",
+      "http://www.yesnofree.com:80/images/smilies/icon_redface.gif",
+      "http://www.yesnofree.com:80/?log_Year=2005&log_Month=1",
+      "http://www.yesnofree.com:80/rings.htm",
+      "http://www.yesnofree.com:80/images/smilies/icon_sad.gif",
+      "http://www.yesnofree.com:80/user/help.asp?action=shiyongfalv",
+      "http://www.yesnofree.com:80/?log_Year=2004&log_Month=9",
+      "http://www.yesnofree.com:80/zh/passlookup.jsp",
+      "http://www.yesnofree.com:80/?log_Year=2004&log_Month=11",
+      "http://www.yesnofree.com:80/trackback.asp?logID=27",
+      "http://www.yesnofree.com:80/default.asp?cateID=1",
+      "http://www.yesnofree.com:80/commlist.asp",
+      "http://www.yesnofree.com:80/images/logos.gif",
+      "http://www.yesnofree.com:80/user/getpwdshjia.asp",
+      "http://yesnofree.com:80/blogview.asp?logID=29",
+      "http://www.yesnofree.com:80/user/help.asp",
+      "http://www.yesnofree.com:80/images/smilies/icon_razz.gif",
+      "http://www.yesnofree.com:80/images/home_a.gif",
+      "http://www.yesnofree.com:80/images/gjcx.gif",
+      "http://www.yesnofree.com:80/user/help.asp?action=gongzuoshijian",
+      "http://www.yesnofree.com:80/user/help.asp?action=changjianwenti",
+      "http://www.yesnofree.com:80/member.asp?action=view&memName=yesnofree",
+      "http://www.yesnofree.com:80/shop/shopping.htm",
+      "http://www.yesnofree.com:80/user/help.asp?action=fukuan",
+      "http://www.yesnofree.com:80/?log_Year=2004&log_Month=3",
+      "http://www.yesnofree.com:80/reg.asp",
+      "http://www.yesnofree.com:80/user/help.asp?action=shouhoufuwu",
+      "http://www.yesnofree.com:80/blogview.asp?logID=22",
+      "http://www.yesnofree.com:80/user/help.asp?action=baomi",
+      "http://www.yesnofree.com:80/sort.asp?sort_id=10",
+      "http://www.yesnofree.com:80/?log_Year=2003&log_Month=9",
+      "http://www.yesnofree.com:80/blogview.asp?logID=13",
+      "http://yesnofree.com:80/blogview.asp?logID=30&cateID=",
+      "http://www.yesnofree.com:80/images/goumai.gif",
+      "http://www.yesnofree.com:80/user/help.asp?action=jifen",
+      "http://yesnofree.com:80/trackback.asp?logID=23",
+      "http://www.yesnofree.com:80/zh/register.jsp",
+      "http://www.yesnofree.com:80/images/scroll.js",
+      "http://www.yesnofree.com:80/shopping.htm",
+      "http://www.yesnofree.com:80/user/regshjia.asp",
+      "http://www.yesnofree.com:80/styles/default.css",
+      "http://www.yesnofree.com:80/sort.asp?sort_id=8",
+      "http://www.yesnofree.com:80/blogrss1.asp",
+      "http://www.yesnofree.com:80/user/admin/",
+      "http://www.yesnofree.com:80/images/smilies/icon_question.gif",
+      "http://www.yesnofree.com:80/blogview.asp?logID=21",
+      "http://www.yesnofree.com:80/comm/contact.asp",
+      "http://www.yesnofree.com:80/cnblog.css",
+      "http://www.yesnofree.com:80/?log_Year=2005&log_Month=12",
+      "http://www.yesnofree.com:80/sort.asp?sort_id=7",
+      "http://www.yesnofree.com:80/trackback.asp?logID=22",
+      "http://www.yesnofree.com:80/?log_Year=2005&log_Month=4",
+      "http://www.yesnofree.com:80/blogview.asp?logID=10",
+      "http://www.yesnofree.com:80/blogview.asp?logID=3",
+      "http://www.yesnofree.com:80/trackback.asp?logID=19"
+    ],
+    "open_ports": [],
+    "technologies": {
+      "server": [
+        "hcdn"
+      ],
+      "frameworks": [],
+      "javascript_libraries": [],
+      "cms": [],
+      "cloud": [],
+      "analytics": []
+    },
+    "summary": {
+      "subdomains_found": 2,
+      "urls_found": 175,
+      "open_ports": 0
+    }
+  }
+}

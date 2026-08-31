@@ -1,0 +1,189 @@
+ AI Website Auditor - Complete Windows 11 Installation Guide
+Version: 1.0
+Purpose: Install the AI Website Auditor on a Windows 11 laptop using WSL2 (Ubuntu).
+Total Time: ~30-45 minutes
+
+📋 Prerequisites
+Windows 11 laptop
+
+Internet connection
+
+Administrator rights on the laptop
+
+The backup file: ai_website_auditor_backup.zip (from Google Drive or USB)
+
+🔧 PART 1: Enable WSL2 on Windows 11
+Step 1.1: Press the Windows Key on your keyboard.
+
+Step 1.2: Type PowerShell.
+
+Step 1.3: Right-click on Windows PowerShell and select "Run as administrator".
+
+Step 1.4: In the blue PowerShell window, type this command and press Enter:
+
+powershell
+wsl --install
+Step 1.5: Wait for the installation to complete (5-10 minutes). It will automatically install Ubuntu.
+
+Step 1.6: Restart your computer when prompted.
+
+🐧 PART 2: Launch Ubuntu and Set Up
+Step 2.1: Press the Windows Key and type Ubuntu.
+
+Step 2.2: Click on the Ubuntu app to launch it.
+
+Step 2.3: Wait for the installation to finish. When prompted:
+
+Enter new UNIX username: Type user (or your preferred name) and press Enter.
+
+Enter new UNIX password: Type a password (you won't see it as you type) and press Enter.
+
+Retype new UNIX password: Type it again and press Enter.
+
+⚠️ Remember this password! You'll need it for sudo commands.
+
+Step 2.4: Update Ubuntu by running:
+
+bash
+sudo apt update && sudo apt upgrade -y
+Type your password when prompted and press Enter. Wait for it to complete.
+
+🛠️ PART 3: Install Required Tools
+Step 3.1: Install Python, Git, and other essential tools:
+
+bash
+sudo apt install python3 python3-pip python3-venv git curl wget golang-go nmap -y
+Step 3.2: Set up Go (required for subdomain discovery):
+
+bash
+export PATH=$PATH:~/go/bin
+echo 'export PATH=$PATH:~/go/bin' >> ~/.bashrc
+source ~/.bashrc
+Step 3.3: Install Subfinder (subdomain discovery tool):
+
+bash
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+Step 3.4: Install Waybackurls (URL discovery tool):
+
+bash
+go install github.com/tomnomnom/waybackurls@latest
+📁 PART 4: Copy Files from Backup
+Step 4.1: In Windows, locate your backup file ai_website_auditor_backup.zip. (Download it from Google Drive or copy from USB.)
+
+Step 4.2: Extract the zip file. You should see a folder called ai_website_auditor_backup.
+
+Step 4.3: In the Ubuntu terminal, copy the files from Windows to Ubuntu:
+
+bash
+cp /mnt/c/Users/YourUsername/Downloads/ai_website_auditor_backup/* ~/
+⚠️ Important: Replace YourUsername with your actual Windows username.
+(For example: /mnt/c/Users/rupendra/Downloads/...)
+
+Step 4.4: Rename the folder and navigate into it:
+
+bash
+cd ~
+mv ai_website_auditor_backup ai-website-auditor
+cd ai-website-auditor
+🐍 PART 5: Set Up Python Environment
+Step 5.1: Create a virtual environment:
+
+bash
+python3 -m venv venv
+source venv/bin/activate
+Step 5.2: Install all required Python packages:
+
+bash
+pip install -r requirements.txt
+Step 5.3: Make the launcher script executable:
+
+bash
+chmod +x run.sh
+🚀 PART 6: Run the App
+Step 6.1: Start the app:
+
+bash
+./run.sh
+Step 6.2: Open your browser and go to:
+👉 http://localhost:8501
+
+🔧 PART 7: Fix Nmap (Optional)
+If you get a "Nmap requires root privileges" error, run the app with sudo:
+
+bash
+sudo -E ./run.sh
+(The -E flag keeps your environment variables, including the PATH to subfinder.)
+
+🔍 PART 8: Test the App
+Enter a website URL (e.g., https://mysticsoundhealer.com)
+
+Click "Start Audit"
+
+Wait for the audit to complete
+
+Check the Bug Bounty Reconnaissance section for subdomains, URLs, and open ports
+
+📁 PART 9: Find Your Reports
+All reports are automatically saved in the reports/ folder:
+
+bash
+ls -la ~/ai-website-auditor/reports/
+You can open them in your browser:
+
+bash
+firefox ~/ai-website-auditor/reports/technical_report_*.html
+❓ Troubleshooting
+Issue	Solution
+subfinder: command not found	Run export PATH=$PATH:~/go/bin then try again
+Nmap permission error	Run with sudo -E ./run.sh
+App won't start	Run cd ~/ai-website-auditor && source venv/bin/activate && ./run.sh
+Port 8501 already in use	Kill the process: sudo lsof -i :8501 then sudo kill -9 PID
+ModuleNotFoundError: No module named 'distutils'	This is a harmless browser-opening error. Ignore it.
+✅ YOU'RE DONE!
+Your AI Website Auditor is now running on Windows 11!
+
+Features:
+
+✅ Website Security Audit
+
+✅ SEO Analysis
+
+✅ Business Impact Analysis
+
+✅ Bug Bounty Reconnaissance
+
+✅ Auto-Saving Reports
+
+✅ Business Reports
+
+✅ Exploit Chain Detection
+
+📦 Backup Info
+Backup File: ai_website_auditor_backup.zip
+Location: Google Drive (or USB)
+Created: 2026-08-14
+
+📞 Need Help?
+Check the error messages in the terminal
+
+Look for solutions in the Troubleshooting section above
+
+The app will continue to work even with the harmless distutils warning
+
+Good luck and happy auditing! 🚀
+
+✅ HOW TO SAVE THIS
+Copy the entire document above
+
+Open a text editor (Notepad on Windows, or nano on Linux)
+
+Paste the content
+
+Save as: WINDOWS_INSTALL.md
+
+Upload to Google Drive alongside your backup zip file
+
+This is the complete, single document. No extra steps. Follow it at your own pace. 🙏
+
+
+

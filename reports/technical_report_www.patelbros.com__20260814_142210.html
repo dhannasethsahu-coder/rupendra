@@ -1,0 +1,125 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Website Audit Report</title>
+        <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { font-family: 'Segoe UI', Arial, sans-serif; padding: 20px; background: #f0f2f5; }
+            .container { max-width: 1100px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 30px; }
+            .header h1 { font-size: 28px; margin-bottom: 10px; }
+            .header p { margin: 5px 0; opacity: 0.9; }
+            .score-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0; }
+            .score-box { background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center; }
+            .score-box .number { font-size: 32px; font-weight: bold; }
+            .score-box .label { font-size: 14px; color: #666; margin-top: 5px; }
+            .section { margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 10px; }
+            .section h2 { color: #333; margin-bottom: 15px; font-size: 22px; }
+            .section h3 { color: #555; margin: 15px 0 10px 0; font-size: 18px; }
+            .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+            .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+            .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 15px; }
+            .metric { background: white; padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+            .metric .value { font-size: 24px; font-weight: bold; color: #333; }
+            .metric .label { font-size: 12px; color: #888; margin-top: 3px; }
+            .rec { background: white; padding: 15px; margin: 10px 0; border-left: 4px solid #667eea; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+            .rec-critical { border-left-color: #dc3545; }
+            .rec-high { border-left-color: #fd7e14; }
+            .rec-medium { border-left-color: #ffc107; }
+            .rec-low { border-left-color: #28a745; }
+            .rec .category { font-weight: bold; }
+            .rec .priority { font-size: 12px; padding: 2px 8px; border-radius: 10px; }
+            .priority-critical { background: #dc3545; color: white; }
+            .priority-high { background: #fd7e14; color: white; }
+            .priority-medium { background: #ffc107; color: #333; }
+            .priority-low { background: #28a745; color: white; }
+            .badge { font-size: 12px; padding: 2px 8px; border-radius: 10px; }
+            .badge-success { background: #28a745; color: white; }
+            .badge-danger { background: #dc3545; color: white; }
+            .badge-warning { background: #ffc107; color: #333; }
+            .badge-info { background: #17a2b8; color: white; }
+            table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+            th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+            th { background: #f1f1f1; font-weight: bold; }
+            .footer { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-top: 30px; }
+            .footer .btn { background: white; color: #667eea; padding: 12px 30px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; text-decoration: none; display: inline-block; font-weight: bold; }
+            .text-success { color: #28a745; }
+            .text-danger { color: #dc3545; }
+            .text-warning { color: #ffc107; }
+            .text-muted { color: #888; }
+            @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <h1>🏆 Website Audit Report</h1>
+                <p><strong>URL:</strong> https://www.patelbros.com/</p>
+                <p><strong>Date:</strong> 2026-08-14T14:19:55.282650</p>
+                <p><strong>Overall Score:</strong> 0.0/100</p>
+            </div>
+            
+            <!-- Scores -->
+            <h2>📊 Scores</h2>
+            <div class="score-grid">
+                <div class="score-box"><div class="number" style="color: #667eea">0.0</div><div class="label">SEO</div></div>
+                <div class="score-box"><div class="number" style="color: #dc3545">0.0</div><div class="label">Security</div></div>
+                <div class="score-box"><div class="number" style="color: #28a745">0.0</div><div class="label">Performance</div></div>
+                <div class="score-box"><div class="number" style="color: #764ba2">0.0</div><div class="label">Overall</div></div>
+            </div>
+    
+            <div class="section">
+                <h2>💰 Business Impact Analysis</h2>
+                <div class="grid-4">
+                    <div class="metric"><div class="value">+300</div><div class="label">Traffic Potential (month)</div></div>
+                    <div class="metric"><div class="value">+0%</div><div class="label">Conversion Opportunity</div></div>
+                    <div class="metric"><div class="value">$300.0</div><div class="label">Revenue Impact (month)</div></div>
+                    <div class="metric"><div class="value">High</div><div class="label">Risk Level</div></div>
+                </div>
+        <h3>💡 Opportunities</h3><ul style='list-style:none;padding:0;'><li style='padding:8px 0;border-bottom:1px solid #eee;'>✅ Improve SEO to gain approximately 300 more visitors/month</li><li style='padding:8px 0;border-bottom:1px solid #eee;'>✅ Potential revenue increase: $300.0/month</li></ul></div>
+            <div class="section">
+                <h2>📈 Conversion Rate Optimization</h2>
+                <div class="grid-3">
+                    <div class="metric"><div class="value">7</div><div class="label">Calls to Action</div></div>
+                    <div class="metric"><div class="value">16</div><div class="label">Trust Signals</div></div>
+                    <div class="metric"><div class="value">1</div><div class="label">Forms Found</div></div>
+                </div>
+        <h3>CTA Examples:</h3><ul style='list-style:none;padding:0;'><li style='padding:5px 0;border-bottom:1px solid #eee;'>• sign up</li></ul></div>
+            <div class="section">
+                <h2>♿ Accessibility Check</h2>
+                <div class="metric" style="margin-bottom:15px;"><div class="value">0/100</div><div class="label">Accessibility Score</div></div>
+                <div class="grid-2">
+                    <div class="metric"><div class="value">201</div><div class="label">Images Missing Alt Text</div></div>
+                    <div class="metric"><div class="value">1</div><div class="label">Heading Issues</div></div>
+                </div>
+        <p style='color:#dc3545;'>⚠️ Missing h1 tag - page needs a primary heading</p></div>
+            <div class="section">
+                <h2>📱 User Experience</h2>
+                <div class="grid-2">
+                    <div class="metric"><div class="value">0</div><div class="label">Broken Links</div></div>
+                    <div class="metric"><div class="value">0</div><div class="label">Mobile Issues</div></div>
+                </div>
+        </div>
+            <div class="section">
+                <h2>🔒 Advanced Security Analysis</h2>
+        
+                <h3>SSL Certificate</h3>
+                <div class="grid-3">
+                    <div class="metric"><div class="value">✅ Valid</div><div class="label">Status</div></div>
+                    <div class="metric"><div class="value">47</div><div class="label">Days Remaining</div></div>
+                    <div class="metric"><div class="value">US</div><div class="label">Issued By</div></div>
+                </div>
+            <div style="background:#f8d7da;padding:15px;border-radius:8px;margin:10px 0;"><h3 style="color:#dc3545;">🚨 CRITICAL SECURITY ISSUES</h3><p style="color:#dc3545;">🔴 XSS vulnerability detected - user data at risk</p></div><div style="background:#fff3cd;padding:15px;border-radius:8px;margin:10px 0;"><h3 style="color:#856404;">⚠️ Security Warnings</h3><p style="color:#856404;">🟡 X-Frame-Options header missing - site is vulnerable to clickjacking</p><p style="color:#856404;">🟡 X-Content-Type-Options header missing - MIME type sniffing possible</p><p style="color:#856404;">🟡 Content-Security-Policy header missing - XSS prevention limited</p><p style="color:#856404;">🟡 SPF record missing - email spoofing possible</p><p style="color:#856404;">🟡 DMARC record missing - email security incomplete</p><p style="color:#856404;">🟡 DKIM record missing - email authentication weak</p></div><h3>Security Headers</h3><table><tr><th>Status</th><th>Header</th><th>Value</th></tr><tr><td>❌</td><td>X-Frame-Options</td><td>Missing</td></tr><tr><td>❌</td><td>X-Content-Type-Options</td><td>Missing</td></tr><tr><td>✅</td><td>Strict-Transport-Security</td><td>max-age=31536000</td></tr><tr><td>❌</td><td>Content-Security-Policy</td><td>Missing</td></tr><tr><td>❌</td><td>X-XSS-Protection</td><td>Missing</td></tr><tr><td>❌</td><td>Referrer-Policy</td><td>Missing</td></tr><tr><td>❌</td><td>Permissions-Policy</td><td>Missing</td></tr></table><h3>📧 Email Security</h3><div class="grid-3"><div class="metric"><div class="value">❌ Missing</div><div class="label">SPF</div></div><div class="metric"><div class="value">❌ Missing</div><div class="label">DKIM</div></div><div class="metric"><div class="value">❌ Missing</div><div class="label">DMARC</div></div></div><h3>🛡️ Vulnerability Testing</h3><div class="grid-2"><div class="metric"><div class="value">✅ Safe</div><div class="label">SQL Injection</div></div><div class="metric"><div class="value">❌ Vulnerable</div><div class="label">XSS</div></div></div><p style="color:#dc3545;">🔓 Open Ports Detected: 80, 443</p><p class="text-muted">These ports are accessible from the internet and could be security risks.</p></div>
+            <h2>🎯 Recommendations</h2>
+    
+            <div class="footer">
+                <h2>🚀 Ready to Fix These Issues?</h2>
+                <p>Contact us for a free consultation!</p>
+                <a href="#" class="btn">Get a Quote</a>
+            </div>
+        </div>
+    </body>
+    </html>
+    

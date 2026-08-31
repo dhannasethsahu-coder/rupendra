@@ -1,0 +1,305 @@
+{
+  "url": "https://yahoo.com",
+  "timestamp": "2026-08-30T12:54:45.017467",
+  "seo_analysis": {
+    "title": "Yahoo",
+    "meta_description": "Missing",
+    "h1_count": 1,
+    "h1_content": [
+      "Will be right back..."
+    ],
+    "total_images": 1,
+    "images_with_alt": 1,
+    "internal_links": 0,
+    "external_links": 0,
+    "mobile_friendly": true
+  },
+  "security_analysis": {
+    "has_ssl": true,
+    "X-Frame-Options": true,
+    "X-Content-Type-Options": true,
+    "Strict-Transport-Security": true
+  },
+  "performance_analysis": {
+    "load_time": 0.46,
+    "page_size_kb": 1.58,
+    "compression": false
+  },
+  "accessibility_analysis": {
+    "alt_text_missing": 0,
+    "heading_issues": [
+      "h1 exists but no h2 found - consider adding subheadings"
+    ],
+    "color_contrast_issues": [],
+    "aria_issues": [
+      "No ARIA labels found - consider adding them for accessibility"
+    ],
+    "keyboard_issues": [],
+    "score": 82
+  },
+  "ux_analysis": {
+    "broken_links": [],
+    "console_errors": [],
+    "mobile_issues": [],
+    "page_weight": 1.6,
+    "render_blocking": [],
+    "issues": []
+  },
+  "cro_analysis": {
+    "cta_count": 0,
+    "cta_texts": [],
+    "trust_signals": [],
+    "forms": 0,
+    "checkout_steps": 0,
+    "issues": [],
+    "recommendations": [
+      "Add more clear calls-to-action to guide visitors through your sales funnel",
+      "Add trust signals (testimonials, reviews, guarantees) to build customer confidence",
+      "Add a lead capture form to convert visitors into leads"
+    ]
+  },
+  "competitor_analysis": {},
+  "business_impact": {
+    "traffic_loss": 300,
+    "conversion_loss": 35,
+    "revenue_loss": 755.0,
+    "risk_level": "High",
+    "opportunities": [
+      "Improve SEO to gain approximately 300 more visitors/month",
+      "Improve conversions to increase sales by up to 35%",
+      "Potential revenue increase: $755.0/month"
+    ]
+  },
+  "business_logic": [
+    {
+      "category": "Sensitive Endpoint Exposure",
+      "severity": "High",
+      "details": [
+        {
+          "path": "/staging",
+          "status": 301,
+          "exposed": false
+        },
+        {
+          "path": "/config",
+          "status": 301,
+          "exposed": false
+        }
+      ],
+      "description": "Sensitive endpoints may be exposed. Check for admin panels, debug endpoints, or API documentation."
+    }
+  ],
+  "misconfigurations": [
+    {
+      "category": "Server Version Disclosure",
+      "severity": "Low",
+      "details": [
+        {
+          "server": "ATS"
+        }
+      ],
+      "description": "Server version ATS is exposed. This helps attackers identify vulnerabilities."
+    }
+  ],
+  "advanced_headers": {
+    "csp": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "High",
+          "description": "Content-Security-Policy header missing - XSS prevention is limited"
+        }
+      ]
+    },
+    "cors": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "Medium",
+          "description": "CORS headers missing - API access may be restricted but also may cause issues"
+        }
+      ]
+    },
+    "permissions_policy": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "Low",
+          "description": "Permissions-Policy header missing - browser features may be abused"
+        }
+      ]
+    },
+    "issues": []
+  },
+  "cloud_issues": [],
+  "exploit_chains": [],
+  "js_secrets": [],
+  "ssrf_indicators": [],
+  "cve_matches": [
+    {
+      "technology": "ATS",
+      "cve_id": "CVE-2000-0171",
+      "description": "atsadc in the atsar package for Linux does not properly check the permissions of an output file, which allows local users to gain root privileges.",
+      "cvss_score": 7.2
+    },
+    {
+      "technology": "ATS",
+      "cve_id": "CVE-2007-0831",
+      "description": "Multiple PHP remote file inclusion vulnerabilities in Atsphp 5.0.1 allow remote attackers to execute arbitrary PHP code via a URL in the CONF[path] parameter to (1) index.php, (2) sources/usercp.php, or (3) sources/admin.php.  NOTE: Another researche",
+      "cvss_score": 7.5
+    },
+    {
+      "technology": "ATS",
+      "cve_id": "CVE-2011-0230",
+      "description": "Buffer overflow in the ATSFontDeactivate API in Apple Type Services (ATS) in Apple Mac OS X before 10.7.2 allows remote attackers to execute arbitrary code or cause a denial of service (application crash) via unspecified vectors.",
+      "cvss_score": 7.5
+    },
+    {
+      "technology": "Google Tag Manager",
+      "cve_id": "CVE-2008-7061",
+      "description": "The tooltip manager (chrome/views/tooltip_manager.cc) in Google Chrome 0.2.149.29 Build 1798 and possibly other versions before 0.2.149.30 allows remote attackers to cause a denial of service (CPU consumption or crash) via a tag with a long title att",
+      "cvss_score": 4.3
+    },
+    {
+      "technology": "Google Tag Manager",
+      "cve_id": "CVE-2022-1707",
+      "description": "The Google Tag Manager for WordPress plugin for WordPress is vulnerable to reflected Cross-Site Scripting via the s parameter due to the site search populating into the data layer of sites with insufficient sanitization in versions up to an including",
+      "cvss_score": 6.1
+    },
+    {
+      "technology": "Google Tag Manager",
+      "cve_id": "CVE-2022-1961",
+      "description": "The Google Tag Manager for WordPress (GTM4WP) plugin is vulnerable to Stored Cross-Site Scripting due to insufficient escaping via the `gtm4wp-options[scroller-contentid]` parameter found in the `~/public/frontend.php` file which allowed attackers wi",
+      "cvss_score": 5.5
+    }
+  ],
+  "scores": {
+    "seo": 0.0,
+    "security": 0.0,
+    "performance": 0.0,
+    "overall": 0.0
+  },
+  "recommendations": [],
+  "advanced_security": {
+    "ssl_certificate": {
+      "issued_to": "US",
+      "issued_by": "US",
+      "expiry_date": "2026-10-21",
+      "days_remaining": 52,
+      "is_valid": true,
+      "expired": false,
+      "expiring_soon": false
+    },
+    "malware_check": {
+      "status": "Clean",
+      "details": [
+        "No malware signatures detected"
+      ]
+    },
+    "blacklist_check": {
+      "status": "Clean",
+      "details": [
+        "Not found on blacklists"
+      ]
+    },
+    "sql_injection": {
+      "vulnerable": false,
+      "details": [
+        "No query parameters to test"
+      ]
+    },
+    "xss": {
+      "vulnerable": false,
+      "details": [
+        "No XSS vulnerabilities detected"
+      ]
+    },
+    "security_headers": {
+      "X-Frame-Options": "Missing",
+      "X-Content-Type-Options": "nosniff",
+      "Strict-Transport-Security": "Missing",
+      "Content-Security-Policy": "Missing",
+      "X-XSS-Protection": "Missing",
+      "Referrer-Policy": "no-referrer-when-downgrade",
+      "Permissions-Policy": "Missing"
+    },
+    "email_security": {
+      "SPF": "Found",
+      "DMARC": "Found",
+      "DKIM": "Missing"
+    },
+    "open_ports": [
+      80,
+      443
+    ],
+    "sensitive_files": [
+      {
+        "path": "/.well-known/security.txt",
+        "status": 200,
+        "size_bytes": 554,
+        "likely_real": true
+      }
+    ],
+    "open_redirect": [
+      {
+        "parameter": "redirect",
+        "redirects_to": "https://www.yahoo.com/?redirect=https://example.com",
+        "status": 301
+      },
+      {
+        "parameter": "destination",
+        "redirects_to": "https://www.yahoo.com/?destination=https://example.com",
+        "status": 301
+      },
+      {
+        "parameter": "return_url",
+        "redirects_to": "https://www.yahoo.com/?return_url=https://example.com",
+        "status": 301
+      }
+    ],
+    "ssrf_indicators": [],
+    "jwt_analysis": [],
+    "critical_issues": [
+      "1 sensitive file(s)/path(s) appear exposed - possible credential or source leak"
+    ],
+    "warnings": [
+      "X-Frame-Options header missing - site is vulnerable to clickjacking",
+      "Content-Security-Policy header missing - XSS prevention limited",
+      "HSTS header missing - no enforcement of HTTPS",
+      "DKIM record missing - email authentication weak",
+      "3 parameter(s) show open-redirect behavior"
+    ]
+  },
+  "recon": {
+    "domain": "yahoo.com",
+    "subdomains": [
+      "www.yahoo.com",
+      "mail.yahoo.com",
+      "test.yahoo.com",
+      "shop.yahoo.com",
+      "blog.yahoo.com"
+    ],
+    "urls": [],
+    "open_ports": [],
+    "technologies": {
+      "server": [
+        "ATS"
+      ],
+      "frameworks": [],
+      "javascript_libraries": [],
+      "cms": [],
+      "cloud": [],
+      "analytics": [
+        "Google Tag Manager"
+      ]
+    },
+    "summary": {
+      "subdomains_found": 5,
+      "urls_found": 0,
+      "open_ports": 0
+    }
+  }
+}

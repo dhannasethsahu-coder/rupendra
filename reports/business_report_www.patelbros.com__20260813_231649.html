@@ -1,0 +1,165 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Business Growth Report - https://www.patelbros.com/</title>
+        <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { font-family: 'Segoe UI', Arial, sans-serif; padding: 20px; background: #f0f2f5; }
+            .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            
+            .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 30px; text-align: center; }
+            .header h1 { font-size: 28px; margin-bottom: 5px; }
+            .header .subtitle { font-size: 16px; opacity: 0.8; }
+            .header .website { font-size: 20px; font-weight: bold; margin: 10px 0; }
+            .header .date { font-size: 14px; opacity: 0.7; }
+            
+            .score-ring { text-align: center; margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 12px; }
+            .score-ring .big-number { font-size: 72px; font-weight: bold; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+            .score-ring .label { font-size: 18px; color: #666; }
+            .score-ring .sub-label { font-size: 14px; color: #999; margin-top: 5px; }
+            
+            .impact-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 20px 0; }
+            .impact-card { background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center; }
+            .impact-card .icon { font-size: 30px; }
+            .impact-card .number { font-size: 28px; font-weight: bold; color: #1a1a2e; }
+            .impact-card .label { font-size: 14px; color: #666; }
+            
+            .statements { background: #e8f4fd; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #0f3460; }
+            .statements h3 { color: #0f3460; margin-bottom: 10px; }
+            .statements li { list-style: none; padding: 8px 0; border-bottom: 1px solid #d4e4f0; }
+            .statements li:last-child { border-bottom: none; }
+            
+            .section { margin: 25px 0; padding: 20px; background: #f8f9fa; border-radius: 10px; }
+            .section h2 { color: #1a1a2e; margin-bottom: 15px; font-size: 20px; }
+            
+            .priority-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+            .priority-item { background: white; padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+            .priority-item .count { font-size: 36px; font-weight: bold; }
+            .priority-item .label { font-size: 14px; color: #666; }
+            .priority-critical .count { color: #dc3545; }
+            .priority-high .count { color: #fd7e14; }
+            .priority-medium .count { color: #ffc107; }
+            
+            .issue-item { background: white; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #667eea; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+            .issue-item .title { font-weight: bold; }
+            .issue-item .impact { font-size: 14px; color: #666; margin-top: 5px; }
+            .issue-critical { border-left-color: #dc3545; }
+            .issue-high { border-left-color: #fd7e14; }
+            .issue-medium { border-left-color: #ffc107; }
+            
+            .opportunity { background: #d4edda; padding: 15px; border-radius: 8px; margin: 5px 0; border-left: 4px solid #28a745; }
+            
+            .footer { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-top: 30px; }
+            .footer .btn { background: white; color: #1a1a2e; padding: 12px 40px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; text-decoration: none; display: inline-block; font-weight: bold; }
+            .footer p { margin: 10px 0; opacity: 0.9; }
+            
+            @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+            .text-center { text-align: center; }
+            .mt-10 { margin-top: 10px; }
+            .mb-10 { margin-bottom: 10px; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <p class="subtitle">🚀 BUSINESS GROWTH REPORT</p>
+                <h1>Website Performance Analysis</h1>
+                <div class="website">https://www.patelbros.com/</div>
+                <div class="date">Generated: 2026-08-13</div>
+            </div>
+            
+            <!-- Overall Score -->
+            <div class="score-ring">
+                <div class="big-number">0</div>
+                <div class="label">Overall Performance Score</div>
+                <div class="sub-label">Out of 100</div>
+            </div>
+            
+            <!-- Quick Impact Summary -->
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="icon">📈</div>
+                    <div class="number">+300</div>
+                    <div class="label">Potential Monthly Visitors</div>
+                </div>
+                <div class="impact-card">
+                    <div class="icon">💰</div>
+                    <div class="number">$300</div>
+                    <div class="label">Potential Monthly Revenue</div>
+                </div>
+                <div class="impact-card">
+                    <div class="icon">🛡️</div>
+                    <div class="number">High</div>
+                    <div class="label">Risk Level</div>
+                </div>
+            </div>
+            
+            <!-- Business Impact Statements -->
+            <div class="statements">
+                <h3>💡 What This Means for Your Business</h3>
+                <ul>
+    <li>💰 Potential to increase revenue by $300/month</li><li>📈 Opportunity to attract 300 more visitors per month</li><li>🔴 High security risk - your customers' data may be at risk</li><li>♿ 201 images missing descriptions - excluding visitors with disabilities</li><li>🔒 1 critical security vulnerabilities that put your business at risk</li>
+                </ul>
+            </div>
+            
+            <!-- Priority Breakdown -->
+            <div class="section">
+                <h2>📊 Issues by Priority</h2>
+                <div class="priority-grid">
+                    <div class="priority-item priority-critical">
+                        <div class="count">0</div>
+                        <div class="label">🚨 Critical - Fix Now</div>
+                    </div>
+                    <div class="priority-item priority-high">
+                        <div class="count">0</div>
+                        <div class="label">⚠️ High Priority</div>
+                    </div>
+                    <div class="priority-item priority-medium">
+                        <div class="count">0</div>
+                        <div class="label">📌 Medium Priority</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="section" style="background:#d4edda;">
+                <h2>🚀 Growth Opportunities</h2>
+        <div class="opportunity">✅ Improve SEO to gain approximately 300 more visitors/month</div><div class="opportunity">✅ Potential revenue increase: $300.0/month</div></div>
+            <div class="section" style="background:#f8d7da;">
+                <h2>🔒 Security Risks</h2>
+                <p style="margin-bottom:10px;">Your website has 1 critical security issues that could:</p>
+                <ul style="list-style:none;padding:0;">
+        <li style="padding:5px 0;">🔴 XSS vulnerability detected - user data at risk</li>
+                </ul>
+                <p style="margin-top:10px;font-weight:bold;">These issues could result in loss of customer trust, data breaches, or legal liability.</p>
+            </div>
+        
+            <div class="section" style="background:#e8f4fd;">
+                <h2>📈 Conversion Opportunities</h2>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
+                    <div style="background:white;padding:15px;border-radius:8px;text-align:center;">
+                        <div style="font-size:36px;font-weight:bold;">7</div>
+                        <div style="color:#666;">Calls to Action Found</div>
+                    </div>
+                    <div style="background:white;padding:15px;border-radius:8px;text-align:center;">
+                        <div style="font-size:36px;font-weight:bold;">16</div>
+                        <div style="color:#666;">Trust Signals Found</div>
+                    </div>
+                </div>
+    
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="footer">
+                <h2>🚀 Ready to Grow Your Business?</h2>
+                <p>We can help you fix these issues and unlock your website's full potential.</p>
+                <p style="font-size:14px;opacity:0.8;">Schedule a free consultation to discuss your personalized growth plan.</p>
+                <br>
+                <a href="#" class="btn">📞 Request a Free Consultation</a>
+            </div>
+            
+        </div>
+    </body>
+    </html>
+    

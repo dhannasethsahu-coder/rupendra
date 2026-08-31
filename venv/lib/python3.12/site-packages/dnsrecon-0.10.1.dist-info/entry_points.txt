@@ -1,0 +1,2 @@
+[console_scripts]
+dnsrecon = dnsrecon.__main__:main

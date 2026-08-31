@@ -1,0 +1,1070 @@
+{
+  "url": "https://demoweb.com",
+  "timestamp": "2026-08-19T11:57:48.895061",
+  "seo_analysis": {
+    "title": "Missing Title",
+    "meta_description": "Missing",
+    "h1_count": 0,
+    "h1_content": [],
+    "total_images": 0,
+    "images_with_alt": 0,
+    "internal_links": 0,
+    "external_links": 0,
+    "mobile_friendly": false
+  },
+  "security_analysis": {
+    "has_ssl": true,
+    "X-Frame-Options": false,
+    "X-Content-Type-Options": false,
+    "Strict-Transport-Security": false
+  },
+  "performance_analysis": {
+    "load_time": 0.2,
+    "page_size_kb": 0.11,
+    "compression": false
+  },
+  "accessibility_analysis": {
+    "alt_text_missing": 0,
+    "heading_issues": [
+      "Missing h1 tag - page needs a primary heading"
+    ],
+    "color_contrast_issues": [],
+    "aria_issues": [
+      "No ARIA labels found - consider adding them for accessibility"
+    ],
+    "keyboard_issues": [],
+    "score": 82
+  },
+  "ux_analysis": {
+    "broken_links": [],
+    "console_errors": [],
+    "mobile_issues": [
+      "Missing viewport meta tag - site may not be mobile-friendly"
+    ],
+    "page_weight": 0.11,
+    "render_blocking": [],
+    "issues": []
+  },
+  "cro_analysis": {
+    "cta_count": 0,
+    "cta_texts": [],
+    "trust_signals": [],
+    "forms": 0,
+    "checkout_steps": 0,
+    "issues": [],
+    "recommendations": [
+      "Add more clear calls-to-action to guide visitors through your sales funnel",
+      "Add trust signals (testimonials, reviews, guarantees) to build customer confidence",
+      "Add a lead capture form to convert visitors into leads"
+    ]
+  },
+  "competitor_analysis": {},
+  "business_impact": {
+    "traffic_loss": 300,
+    "conversion_loss": 35,
+    "revenue_loss": 755.0,
+    "risk_level": "High",
+    "opportunities": [
+      "Improve SEO to gain approximately 300 more visitors/month",
+      "Improve conversions to increase sales by up to 35%",
+      "Potential revenue increase: $755.0/month"
+    ]
+  },
+  "business_logic": [
+    {
+      "category": "Sensitive Endpoint Exposure",
+      "severity": "High",
+      "details": [
+        {
+          "path": "/admin",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/dashboard",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/api",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/graphql",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/swagger",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/actuator",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/env",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/heapdump",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/debug",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/test",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/staging",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/dev",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/qa",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/backup",
+          "status": 200,
+          "exposed": true
+        },
+        {
+          "path": "/config",
+          "status": 200,
+          "exposed": true
+        }
+      ],
+      "description": "Sensitive endpoints may be exposed. Check for admin panels, debug endpoints, or API documentation."
+    },
+    {
+      "category": "Sensitive File Exposure",
+      "severity": "Critical",
+      "details": [
+        {
+          "path": "/.git/config",
+          "status": 200
+        }
+      ],
+      "description": "Sensitive file /.git/config is exposed. This may contain credentials or configuration."
+    },
+    {
+      "category": "Sensitive File Exposure",
+      "severity": "Critical",
+      "details": [
+        {
+          "path": "/.env",
+          "status": 200
+        }
+      ],
+      "description": "Sensitive file /.env is exposed. This may contain credentials or configuration."
+    },
+    {
+      "category": "Sensitive File Exposure",
+      "severity": "Critical",
+      "details": [
+        {
+          "path": "/.aws/credentials",
+          "status": 200
+        }
+      ],
+      "description": "Sensitive file /.aws/credentials is exposed. This may contain credentials or configuration."
+    },
+    {
+      "category": "Sensitive File Exposure",
+      "severity": "Critical",
+      "details": [
+        {
+          "path": "/.ssh/id_rsa",
+          "status": 200
+        }
+      ],
+      "description": "Sensitive file /.ssh/id_rsa is exposed. This may contain credentials or configuration."
+    },
+    {
+      "category": "GraphQL Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/graphql",
+          "status": 200
+        }
+      ],
+      "description": "GraphQL endpoint exposed. Check for introspection queries that leak schema."
+    },
+    {
+      "category": "GraphQL Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/graphiql",
+          "status": 200
+        }
+      ],
+      "description": "GraphQL endpoint exposed. Check for introspection queries that leak schema."
+    },
+    {
+      "category": "GraphQL Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/graphql/console",
+          "status": 200
+        }
+      ],
+      "description": "GraphQL endpoint exposed. Check for introspection queries that leak schema."
+    }
+  ],
+  "misconfigurations": [
+    {
+      "category": "Admin Panel Exposed",
+      "severity": "High",
+      "details": [
+        {
+          "path": "/admin",
+          "status": 200
+        }
+      ],
+      "description": "Admin panel at /admin is accessible. Ensure strong authentication is in place."
+    },
+    {
+      "category": "Admin Panel Exposed",
+      "severity": "High",
+      "details": [
+        {
+          "path": "/login",
+          "status": 200
+        }
+      ],
+      "description": "Admin panel at /login is accessible. Ensure strong authentication is in place."
+    },
+    {
+      "category": "Admin Panel Exposed",
+      "severity": "High",
+      "details": [
+        {
+          "path": "/wp-admin",
+          "status": 200
+        }
+      ],
+      "description": "Admin panel at /wp-admin is accessible. Ensure strong authentication is in place."
+    },
+    {
+      "category": "Admin Panel Exposed",
+      "severity": "High",
+      "details": [
+        {
+          "path": "/administrator",
+          "status": 200
+        }
+      ],
+      "description": "Admin panel at /administrator is accessible. Ensure strong authentication is in place."
+    },
+    {
+      "category": "Admin Panel Exposed",
+      "severity": "High",
+      "details": [
+        {
+          "path": "/dashboard",
+          "status": 200
+        }
+      ],
+      "description": "Admin panel at /dashboard is accessible. Ensure strong authentication is in place."
+    },
+    {
+      "category": "Debug Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/debug",
+          "status": 200
+        }
+      ],
+      "description": "Debug/status endpoint /debug is exposed. May leak sensitive system information."
+    },
+    {
+      "category": "Debug Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/debug/pprof",
+          "status": 200
+        }
+      ],
+      "description": "Debug/status endpoint /debug/pprof is exposed. May leak sensitive system information."
+    },
+    {
+      "category": "Debug Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/_status",
+          "status": 200
+        }
+      ],
+      "description": "Debug/status endpoint /_status is exposed. May leak sensitive system information."
+    },
+    {
+      "category": "Debug Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/status",
+          "status": 200
+        }
+      ],
+      "description": "Debug/status endpoint /status is exposed. May leak sensitive system information."
+    },
+    {
+      "category": "Debug Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/health",
+          "status": 200
+        }
+      ],
+      "description": "Debug/status endpoint /health is exposed. May leak sensitive system information."
+    },
+    {
+      "category": "Debug Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/metrics",
+          "status": 200
+        }
+      ],
+      "description": "Debug/status endpoint /metrics is exposed. May leak sensitive system information."
+    },
+    {
+      "category": "Debug Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/prometheus",
+          "status": 200
+        }
+      ],
+      "description": "Debug/status endpoint /prometheus is exposed. May leak sensitive system information."
+    },
+    {
+      "category": "Debug Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/actuator/health",
+          "status": 200
+        }
+      ],
+      "description": "Debug/status endpoint /actuator/health is exposed. May leak sensitive system information."
+    },
+    {
+      "category": "Git Repository Exposed",
+      "severity": "Critical",
+      "details": [
+        {
+          "path": "/.git/config",
+          "status": 200
+        }
+      ],
+      "description": "Git repository file /.git/config is exposed. This may leak source code and credentials."
+    },
+    {
+      "category": "Git Repository Exposed",
+      "severity": "Critical",
+      "details": [
+        {
+          "path": "/.git/HEAD",
+          "status": 200
+        }
+      ],
+      "description": "Git repository file /.git/HEAD is exposed. This may leak source code and credentials."
+    },
+    {
+      "category": "Git Repository Exposed",
+      "severity": "Critical",
+      "details": [
+        {
+          "path": "/.git/index",
+          "status": 200
+        }
+      ],
+      "description": "Git repository file /.git/index is exposed. This may leak source code and credentials."
+    }
+  ],
+  "advanced_headers": {
+    "csp": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "High",
+          "description": "Content-Security-Policy header missing - XSS prevention is limited"
+        }
+      ]
+    },
+    "cors": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "Medium",
+          "description": "CORS headers missing - API access may be restricted but also may cause issues"
+        }
+      ]
+    },
+    "permissions_policy": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "Low",
+          "description": "Permissions-Policy header missing - browser features may be abused"
+        }
+      ]
+    },
+    "issues": [
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "HSTS missing - HTTPS not enforced",
+        "header": "Strict-Transport-Security"
+      },
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "X-Content-Type-Options missing - MIME sniffing possible",
+        "header": "X-Content-Type-Options"
+      },
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "X-Frame-Options missing - clickjacking possible",
+        "header": "X-Frame-Options"
+      },
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "Referrer-Policy missing - referrer leakage possible",
+        "header": "Referrer-Policy"
+      }
+    ]
+  },
+  "cloud_issues": [
+    {
+      "category": "AWS Credentials Exposed",
+      "severity": "Critical",
+      "details": [
+        {
+          "path": "/.aws/credentials",
+          "status": 200
+        }
+      ],
+      "description": "AWS credentials file /.aws/credentials is exposed. This can lead to account compromise."
+    },
+    {
+      "category": "AWS Credentials Exposed",
+      "severity": "Critical",
+      "details": [
+        {
+          "path": "/.aws/config",
+          "status": 200
+        }
+      ],
+      "description": "AWS credentials file /.aws/config is exposed. This can lead to account compromise."
+    },
+    {
+      "category": "Kubernetes Secrets Exposure",
+      "severity": "Critical",
+      "details": [
+        {
+          "path": "/.kube/config",
+          "status": 200
+        }
+      ],
+      "description": "Kubernetes secrets at /.kube/config are exposed. This can lead to cluster compromise."
+    },
+    {
+      "category": "Kubernetes Secrets Exposure",
+      "severity": "Critical",
+      "details": [
+        {
+          "path": "/var/run/secrets/kubernetes.io/serviceaccount/token",
+          "status": 200
+        }
+      ],
+      "description": "Kubernetes secrets at /var/run/secrets/kubernetes.io/serviceaccount/token are exposed. This can lead to cluster compromise."
+    },
+    {
+      "category": "Docker API Exposure",
+      "severity": "Critical",
+      "details": [
+        {
+          "endpoint": "/v1.40/version",
+          "status": 200
+        }
+      ],
+      "description": "Docker API endpoint /v1.40/version is exposed. This can allow container manipulation."
+    },
+    {
+      "category": "Docker API Exposure",
+      "severity": "Critical",
+      "details": [
+        {
+          "endpoint": "/v1.40/containers/json",
+          "status": 200
+        }
+      ],
+      "description": "Docker API endpoint /v1.40/containers/json is exposed. This can allow container manipulation."
+    },
+    {
+      "category": "Docker API Exposure",
+      "severity": "Critical",
+      "details": [
+        {
+          "endpoint": "/v1.40/images/json",
+          "status": 200
+        }
+      ],
+      "description": "Docker API endpoint /v1.40/images/json is exposed. This can allow container manipulation."
+    }
+  ],
+  "exploit_chains": [],
+  "js_secrets": [],
+  "ssrf_indicators": [],
+  "cve_matches": [],
+  "scores": {
+    "seo": 0.0,
+    "security": 0.0,
+    "performance": 0.0,
+    "overall": 0.0
+  },
+  "recommendations": [],
+  "advanced_security": {
+    "ssl_certificate": {
+      "issued_to": "demoweb.com",
+      "issued_by": "US",
+      "expiry_date": "2027-01-23",
+      "days_remaining": 157,
+      "is_valid": true,
+      "expired": false,
+      "expiring_soon": false
+    },
+    "malware_check": {
+      "status": "Clean",
+      "details": [
+        "No malware signatures detected"
+      ]
+    },
+    "blacklist_check": {
+      "status": "Clean",
+      "details": [
+        "Not found on blacklists"
+      ]
+    },
+    "sql_injection": {
+      "vulnerable": false,
+      "details": [
+        "No query parameters to test"
+      ]
+    },
+    "xss": {
+      "vulnerable": true,
+      "details": [
+        "Potential XSS vulnerability detected"
+      ]
+    },
+    "security_headers": {
+      "X-Frame-Options": "Missing",
+      "X-Content-Type-Options": "Missing",
+      "Strict-Transport-Security": "Missing",
+      "Content-Security-Policy": "Missing",
+      "X-XSS-Protection": "Missing",
+      "Referrer-Policy": "Missing",
+      "Permissions-Policy": "Missing"
+    },
+    "email_security": {
+      "SPF": "Found",
+      "DMARC": "Missing",
+      "DKIM": "Found"
+    },
+    "open_ports": [
+      80,
+      443
+    ],
+    "sensitive_files": [
+      {
+        "path": "/.git/HEAD",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.aws/credentials",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.ssh/id_rsa",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.gitignore",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.git/config",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.env.local",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.env",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.env.production",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.env.backup",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.ssh/id_rsa.pub",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/wp-config.php.old",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.htaccess",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/wp-config.php.bak",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/config.php.bak",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.htpasswd",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/settings.py",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/docker-compose.yml",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/wp-config.php",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.DS_Store",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/config.yml",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/composer.json",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/composer.lock",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/Dockerfile",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/appsettings.json",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/package-lock.json",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/appsettings.Development.json",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.dockerenv",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/web.config",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/backup.zip",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/package.json",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/db.sql",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/backup.sql",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/backup.tar.gz",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/dump.sql",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/server-info",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/server-status",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.vscode/sftp.json",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.idea/workspace.xml",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.well-known/security.txt",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": true
+      },
+      {
+        "path": "/phpinfo.php",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.circleci/config.yml",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.travis.yml",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/info.php",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/credentials.json",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/.github/workflows",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/secrets.yml",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      },
+      {
+        "path": "/id_rsa",
+        "status": 200,
+        "size_bytes": 114,
+        "likely_real": false
+      }
+    ],
+    "open_redirect": [],
+    "ssrf_indicators": [],
+    "jwt_analysis": [],
+    "critical_issues": [
+      "XSS vulnerability detected - user data at risk",
+      "1 sensitive file(s)/path(s) appear exposed - possible credential or source leak"
+    ],
+    "warnings": [
+      "X-Frame-Options header missing - site is vulnerable to clickjacking",
+      "X-Content-Type-Options header missing - MIME type sniffing possible",
+      "Content-Security-Policy header missing - XSS prevention limited",
+      "HSTS header missing - no enforcement of HTTPS",
+      "DMARC record missing - email security incomplete"
+    ]
+  },
+  "recon": {
+    "domain": "demoweb.com",
+    "subdomains": [
+      "test.demoweb.com",
+      "blog.demoweb.com",
+      "shop.demoweb.com",
+      "app.demoweb.com",
+      "mail.demoweb.com",
+      "www.demoweb.com",
+      "admin.demoweb.com",
+      "support.demoweb.com",
+      "dev.demoweb.com",
+      "ftp.demoweb.com",
+      "api.demoweb.com"
+    ],
+    "urls": [
+      "http://demoweb.com:80/cart",
+      "http://demoweb.com:80/images/440m1.jpg",
+      "http://demoweb.com:80/index.php/product/video.html",
+      "http://demoweb.com:80/images/Insertbw.gif",
+      "http://demoweb.com:80/info/view/2.html",
+      "http://demoweb.com:80/product/catalog/17",
+      "http://demoweb.com:80/hello-world",
+      "http://www.demoweb.com:80/",
+      "http://demoweb.com:80/images/red_star.gif",
+      "http://mypham.demoweb.com:80/parking.php",
+      "http://blog.demoweb.com:80/wp-admin",
+      "http://demoweb.com:80/images/now_button_65.gif",
+      "http://demoweb.com/tg.php?uid=demoweb51a715ae219ec8.59825694",
+      "http://www.demoweb.com/search_caf.php?uid=www522775a4ddf477.90784695&src=linen",
+      "http://demoweb.com:80/wp-admin/post.php?",
+      "http://mypham.demoweb.com:80/",
+      "http://demoweb.com:80/images/discover.gif",
+      "http://demoweb.com:80/smallpix/Bwposter.jpg",
+      "http://mypham.demoweb.com:80/robots.txt",
+      "http://blog.demoweb.com:80/wp-login.php",
+      "http://demoweb.com:80/images/bottom1.gif",
+      "http://www.demoweb.com:80/terms%26amp%3B.htm",
+      "https://mobile.demoweb.com/favicon.ico",
+      "http://themes.demoweb.com/robots.txt",
+      "http://mypham.demoweb.com:80/search/fb.php?ses=",
+      "http://demoweb.com:80/admin/home",
+      "http://demoweb.com:80/admin/news/edit/4",
+      "http://demoweb.com:80/log/jserr.php",
+      "http://demoweb.com:80/wp-admin/options-permalink.php",
+      "http://demoweb.com:80/product/view/9",
+      "http://blog.demoweb.com:80/dashboard",
+      "http://demoweb.com:80/admin/product_order/index",
+      "http://demoweb.com:80/product/view/9.html",
+      "http://demoweb.com:80/wp-admin/install.php",
+      "http://demoweb.com:80/admin/tran",
+      "http://demoweb.com:80/images/muscle.gif",
+      "http://demoweb.com:80/admin/product",
+      "http://demoweb.com/search_caf.php?uid=demoweb5376f42268ab75.22057941&src=linen&abp=1",
+      "http://demoweb.com:80/wp-admin/nav-menus.php?",
+      "http://demoweb.com:80/?f",
+      "http://demoweb.com:80/images/ie4get_animated_82.gif",
+      "http://www.demoweb.com/tg.php?uid=www522775a4ddf477.90784695",
+      "http://demoweb.com:80/product/view/16",
+      "http://themes.demoweb.com:80/",
+      "http://www.demoweb.com:80/products.htm",
+      "http://demoweb.com:80/wp-admin/index.php",
+      "http://demoweb.com:80/images/a150X74wb.gif",
+      "http://demoweb.com:80/wp",
+      "http://demoweb.com:80/admin/product/edit/5",
+      "http://demoweb.com:80/index.php/product/search?",
+      "http://www.demoweb.com:80/Default.htm",
+      "http://demoweb.com/page.php?demoweb5376f42268ab75.22057941",
+      "http://mypham.demoweb.com:80/info/",
+      "http://demoweb.com:80/product/view/3.html",
+      "http://demoweb.com:80/robots.txt",
+      "http://demoweb.com:80/wp-admin",
+      "http://www.demoweb.com:80/new_mainmessage.php",
+      "http://demoweb.com:80/admin/product/add",
+      "http://mypham.demoweb.com:80/log/jserr.php",
+      "https://mobile.demoweb.com/robots.txt",
+      "http://demoweb.com:80/san-pham.html",
+      "https://mobile.demoweb.com/",
+      "http://demoweb.com:80/admin/product/index/6",
+      "http://demoweb.com:80/images/spacer.gif",
+      "http://www.demoweb.com:80/images/comingsoon_SN.gif",
+      "http://demoweb.com//?gtnjs=1",
+      "http://tintuc.demoweb.com/wp-content/uploads/2017/07/949677354643826498.gif",
+      "http://demoweb.com:80/admin/product_order/index/5",
+      "http://demoweb.com:80/index.php",
+      "http://demoweb.com:80/info/view/1.html",
+      "http://www.demoweb.com:80/comingsoon_noframes.php",
+      "http://demoweb.com:80/vodoo.htm",
+      "http://themes.demoweb.com:80/wp-admin/install.php?",
+      "http://blog.demoweb.com:80/wp-admin/install.php?",
+      "http://themes.demoweb.com:80/wp-login.php?",
+      "http://demoweb.com:80/images/moparl.gif",
+      "http://demoweb.com:80/product/view/4.html",
+      "http://demoweb.com:80/product/view/5.html",
+      "http://demoweb.com:80/admin/product/index",
+      "http://demoweb.com/page.php?demoweb51a715ae219ec8.59825694",
+      "http://demoweb.com:80/search/fb.php?ses=",
+      "http://demoweb.com:80/wp-admin/admin.php?",
+      "http://demoweb.com:80/wp-admin/customize.php?",
+      "http://demoweb.com:80/images/uas_logo.gif",
+      "http://themes.demoweb.com:80/log/jserr.php",
+      "http://demoweb.com:80/admin/product/edit/16",
+      "http://www.demoweb.com/page.php?www522775a4ddf477.90784695",
+      "http://www.demoweb.com:80/services.htm",
+      "http://demoweb.com:80/wp-admin/themes.php",
+      "http://demoweb.com:80/admin/news",
+      "http://demoweb.com:80/index.php/product/search_price?",
+      "http://www.demoweb.com:80/caf/?",
+      "http://demoweb.com:80/secure/QM/V3.jpg",
+      "http://hjjj.demoweb.com:80/",
+      "http://demoweb.com:80/images/V3_small.jpg",
+      "http://tintuc.demoweb.com/",
+      "http://demoweb.com:80/admin/product_order",
+      "http://blog.demoweb.com/robots.txt",
+      "http://demoweb.com/favicon.ico",
+      "http://demoweb.com:80/admin/login",
+      "http://www.demoweb.com:80/news.htm",
+      "http://blog.demoweb.com:80/",
+      "http://demoweb.com:80/index.php/product/info/view/2.html",
+      "http://demoweb.com:80/_vti_bin/fpcount.exe/?Page=index.htm%7cImage=2%7cDigits=6",
+      "http://demoweb.com:80/admin/product/view/9.html",
+      "http://blog.demoweb.com:80/log/jserr.php",
+      "http://demoweb.com:80/info/",
+      "http://demoweb.com:80/admin/catalog/edit/18",
+      "http://demoweb.com:80/parking.php",
+      "http://demoweb.com:80/wp-admin/edit.php",
+      "http://demoweb.com:80/smallpix/xflagssyn.gif",
+      "http://demoweb.com/search_caf.php?uid=demoweb51a715ae219ec8.59825694&src=linencafexp",
+      "http://themes.demoweb.com:80/wp-admin",
+      "http://demoweb.com:80/smallpix/epk_f.jpg",
+      "http://demoweb.com:80/product/view/3",
+      "http://demoweb.com:80/lien-he.html",
+      "http://www.demoweb.com:80/mainmessage.php",
+      "http://demoweb.com/tg.php?uid=demoweb5376f42268ab75.22057941",
+      "http://www.demoweb.com:80/_vti_bin/shtml.exe/toppage1.htm/map",
+      "http://demoweb.com:80/images/moparm.gif",
+      "http://demoweb.com:80/images/search100names.gif",
+      "http://demoweb.com:80/admin/admin",
+      "http://demoweb.com:80/images/visa.jpg",
+      "http://demoweb.com:80/images/Snakeup_small.gif",
+      "http://demoweb.com:80/wp-login.php",
+      "http://demoweb.com/js/detectABP.js?adType=banner&blantantlyAnAdUrl=1",
+      "http://demoweb.com:80/smallpix/Tranny.jpg"
+    ],
+    "open_ports": [],
+    "technologies": {
+      "server": [],
+      "frameworks": [],
+      "javascript_libraries": [],
+      "cms": [],
+      "cloud": [],
+      "analytics": []
+    },
+    "summary": {
+      "subdomains_found": 11,
+      "urls_found": 127,
+      "open_ports": 0
+    }
+  }
+}

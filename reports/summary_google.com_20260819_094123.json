@@ -1,0 +1,368 @@
+{
+  "url": "https://google.com",
+  "timestamp": "2026-08-19T09:38:12.564574",
+  "seo_analysis": {
+    "title": "Google",
+    "meta_description": "Search the world's information, including webpages, images, videos and more. Google has many special features to help you find exactly what you're looking for.",
+    "h1_count": 0,
+    "h1_content": [],
+    "total_images": 1,
+    "images_with_alt": 1,
+    "internal_links": 4,
+    "external_links": 0,
+    "mobile_friendly": false
+  },
+  "security_analysis": {
+    "has_ssl": true,
+    "X-Frame-Options": true,
+    "X-Content-Type-Options": false,
+    "Strict-Transport-Security": false
+  },
+  "performance_analysis": {
+    "load_time": 0.32,
+    "page_size_kb": 80.96,
+    "compression": true
+  },
+  "accessibility_analysis": {
+    "alt_text_missing": 0,
+    "heading_issues": [
+      "Missing h1 tag - page needs a primary heading"
+    ],
+    "color_contrast_issues": [],
+    "aria_issues": [],
+    "keyboard_issues": [],
+    "score": 90
+  },
+  "ux_analysis": {
+    "broken_links": [],
+    "console_errors": [],
+    "mobile_issues": [
+      "Missing viewport meta tag - site may not be mobile-friendly"
+    ],
+    "page_weight": 80.96,
+    "render_blocking": [],
+    "issues": []
+  },
+  "cro_analysis": {
+    "cta_count": 0,
+    "cta_texts": [],
+    "trust_signals": [],
+    "forms": 1,
+    "checkout_steps": 0,
+    "issues": [],
+    "recommendations": [
+      "Add more clear calls-to-action to guide visitors through your sales funnel",
+      "Add trust signals (testimonials, reviews, guarantees) to build customer confidence"
+    ]
+  },
+  "competitor_analysis": {},
+  "business_impact": {
+    "traffic_loss": 300,
+    "conversion_loss": 35,
+    "revenue_loss": 755.0,
+    "risk_level": "High",
+    "opportunities": [
+      "Improve SEO to gain approximately 300 more visitors/month",
+      "Improve conversions to increase sales by up to 35%",
+      "Potential revenue increase: $755.0/month"
+    ]
+  },
+  "business_logic": [
+    {
+      "category": "Sensitive Endpoint Exposure",
+      "severity": "High",
+      "details": [
+        {
+          "path": "/dashboard",
+          "status": 301,
+          "exposed": false
+        }
+      ],
+      "description": "Sensitive endpoints may be exposed. Check for admin panels, debug endpoints, or API documentation."
+    },
+    {
+      "category": "Hidden Parameter Tampering",
+      "severity": "Medium",
+      "details": [
+        {
+          "name": "ie",
+          "value": "ISO-8859-1"
+        },
+        {
+          "name": "hl",
+          "value": "en"
+        },
+        {
+          "name": "source",
+          "value": "hp"
+        },
+        {
+          "name": "biw",
+          "value": ""
+        },
+        {
+          "name": "bih",
+          "value": ""
+        }
+      ],
+      "description": "Hidden form parameters found. These can be tampered with to manipulate business logic."
+    }
+  ],
+  "misconfigurations": [
+    {
+      "category": "Admin Panel Exposed",
+      "severity": "High",
+      "details": [
+        {
+          "path": "/dashboard",
+          "status": 200
+        }
+      ],
+      "description": "Admin panel at /dashboard is accessible. Ensure strong authentication is in place."
+    },
+    {
+      "category": "Debug Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/health",
+          "status": 200
+        }
+      ],
+      "description": "Debug/status endpoint /health is exposed. May leak sensitive system information."
+    },
+    {
+      "category": "Server Version Disclosure",
+      "severity": "Low",
+      "details": [
+        {
+          "server": "gws"
+        }
+      ],
+      "description": "Server version gws is exposed. This helps attackers identify vulnerabilities."
+    }
+  ],
+  "advanced_headers": {
+    "csp": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "High",
+          "description": "Content-Security-Policy header missing - XSS prevention is limited"
+        }
+      ]
+    },
+    "cors": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "Medium",
+          "description": "CORS headers missing - API access may be restricted but also may cause issues"
+        }
+      ]
+    },
+    "permissions_policy": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "Low",
+          "description": "Permissions-Policy header missing - browser features may be abused"
+        }
+      ]
+    },
+    "issues": [
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "HSTS missing - HTTPS not enforced",
+        "header": "Strict-Transport-Security"
+      },
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "X-Content-Type-Options missing - MIME sniffing possible",
+        "header": "X-Content-Type-Options"
+      },
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "Referrer-Policy missing - referrer leakage possible",
+        "header": "Referrer-Policy"
+      }
+    ]
+  },
+  "cloud_issues": [],
+  "exploit_chains": [],
+  "js_secrets": [],
+  "ssrf_indicators": [],
+  "cve_matches": [
+    {
+      "technology": "gws",
+      "cve_id": "CVE-2000-0720",
+      "description": "news.cgi in GWScripts News Publisher does not properly authenticate requests to add an author to the author index, which allows remote attackers to add new authors by directly posting an HTTP request to the new.cgi program with an addAuthor parameter",
+      "cvss_score": 5.0
+    },
+    {
+      "technology": "gws",
+      "cve_id": "CVE-2014-1962",
+      "description": "Gwsync in SAP CRM 7.02 EHP 2 allows remote attackers to obtain sensitive information via unspecified vectors, related to an XML External Entity (XXE) issue.",
+      "cvss_score": 5.0
+    },
+    {
+      "technology": "gws",
+      "cve_id": "CVE-2026-46276",
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdgpu: fix zero-size GDS range init on RDNA4\n\nRDNA4 (GFX 12) hardware removes the GDS, GWS, and OA on-chip memory\nresources. The gfx_v12_0 initialisation code correctly leaves\n",
+      "cvss_score": 5.5
+    }
+  ],
+  "scores": {
+    "seo": 0.0,
+    "security": 0.0,
+    "performance": 0.0,
+    "overall": 0.0
+  },
+  "recommendations": [],
+  "advanced_security": {
+    "ssl_certificate": {
+      "issued_to": "*.google.com",
+      "issued_by": "US",
+      "expiry_date": "2026-10-28",
+      "days_remaining": 70,
+      "is_valid": true,
+      "expired": false,
+      "expiring_soon": false
+    },
+    "malware_check": {
+      "status": "Clean",
+      "details": [
+        "No malware signatures detected"
+      ]
+    },
+    "blacklist_check": {
+      "status": "Clean",
+      "details": [
+        "Not found on blacklists"
+      ]
+    },
+    "sql_injection": {
+      "vulnerable": false,
+      "details": [
+        "No query parameters to test"
+      ]
+    },
+    "xss": {
+      "vulnerable": false,
+      "details": [
+        "No XSS vulnerabilities detected"
+      ]
+    },
+    "security_headers": {
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-Content-Type-Options": "Missing",
+      "Strict-Transport-Security": "Missing",
+      "Content-Security-Policy": "Missing",
+      "X-XSS-Protection": "0",
+      "Referrer-Policy": "Missing",
+      "Permissions-Policy": "Missing"
+    },
+    "email_security": {
+      "SPF": "Found",
+      "DMARC": "Found",
+      "DKIM": "Missing"
+    },
+    "open_ports": [
+      80,
+      443
+    ],
+    "sensitive_files": [],
+    "open_redirect": [
+      {
+        "parameter": "redirect",
+        "redirects_to": "https://www.google.com/?redirect=https://example.com",
+        "status": 301
+      },
+      {
+        "parameter": "url",
+        "redirects_to": "https://www.google.com/?url=https://example.com",
+        "status": 301
+      },
+      {
+        "parameter": "next",
+        "redirects_to": "https://www.google.com/?next=https://example.com",
+        "status": 301
+      },
+      {
+        "parameter": "dest",
+        "redirects_to": "https://www.google.com/?dest=https://example.com",
+        "status": 301
+      },
+      {
+        "parameter": "destination",
+        "redirects_to": "https://www.google.com/?destination=https://example.com",
+        "status": 301
+      },
+      {
+        "parameter": "return",
+        "redirects_to": "https://www.google.com/?return=https://example.com",
+        "status": 301
+      },
+      {
+        "parameter": "return_url",
+        "redirects_to": "https://www.google.com/?return_url=https://example.com",
+        "status": 301
+      },
+      {
+        "parameter": "redirect_uri",
+        "redirects_to": "https://www.google.com/?redirect_uri=https://example.com",
+        "status": 301
+      },
+      {
+        "parameter": "continue",
+        "redirects_to": "https://www.google.com/?continue=https://example.com",
+        "status": 301
+      }
+    ],
+    "ssrf_indicators": [],
+    "jwt_analysis": [],
+    "critical_issues": [],
+    "warnings": [
+      "X-Content-Type-Options header missing - MIME type sniffing possible",
+      "Content-Security-Policy header missing - XSS prevention limited",
+      "HSTS header missing - no enforcement of HTTPS",
+      "DKIM record missing - email authentication weak",
+      "9 parameter(s) show open-redirect behavior"
+    ]
+  },
+  "recon": {
+    "domain": "google.com",
+    "subdomains": [
+      "mail.google.com",
+      "api.google.com",
+      "www.google.com",
+      "shop.google.com",
+      "support.google.com",
+      "admin.google.com",
+      "blog.google.com"
+    ],
+    "urls": [],
+    "open_ports": [],
+    "technologies": {
+      "server": [
+        "gws"
+      ],
+      "frameworks": [],
+      "javascript_libraries": [],
+      "cms": [],
+      "cloud": [],
+      "analytics": []
+    },
+    "summary": {
+      "subdomains_found": 7,
+      "urls_found": 0,
+      "open_ports": 0
+    }
+  }
+}

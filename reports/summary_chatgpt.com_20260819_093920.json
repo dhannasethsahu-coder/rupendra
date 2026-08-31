@@ -1,0 +1,423 @@
+{
+  "url": "https://chatgpt.com",
+  "timestamp": "2026-08-19T09:29:17.266096",
+  "seo_analysis": {
+    "title": "Missing Title",
+    "meta_description": "Missing",
+    "h1_count": 0,
+    "h1_content": [],
+    "total_images": 0,
+    "images_with_alt": 0,
+    "internal_links": 0,
+    "external_links": 0,
+    "mobile_friendly": true
+  },
+  "security_analysis": {
+    "has_ssl": true,
+    "X-Frame-Options": true,
+    "X-Content-Type-Options": true,
+    "Strict-Transport-Security": true
+  },
+  "performance_analysis": {
+    "load_time": 0.11,
+    "page_size_kb": 8.35,
+    "compression": true
+  },
+  "accessibility_analysis": {
+    "alt_text_missing": 0,
+    "heading_issues": [
+      "Missing h1 tag - page needs a primary heading"
+    ],
+    "color_contrast_issues": [],
+    "aria_issues": [
+      "No ARIA labels found - consider adding them for accessibility"
+    ],
+    "keyboard_issues": [],
+    "score": 82
+  },
+  "ux_analysis": {
+    "broken_links": [],
+    "console_errors": [],
+    "mobile_issues": [],
+    "page_weight": 8.18,
+    "render_blocking": [],
+    "issues": []
+  },
+  "cro_analysis": {
+    "cta_count": 0,
+    "cta_texts": [],
+    "trust_signals": [],
+    "forms": 0,
+    "checkout_steps": 0,
+    "issues": [],
+    "recommendations": [
+      "Add more clear calls-to-action to guide visitors through your sales funnel",
+      "Add trust signals (testimonials, reviews, guarantees) to build customer confidence",
+      "Add a lead capture form to convert visitors into leads"
+    ]
+  },
+  "competitor_analysis": {},
+  "business_impact": {
+    "traffic_loss": 300,
+    "conversion_loss": 35,
+    "revenue_loss": 755.0,
+    "risk_level": "High",
+    "opportunities": [
+      "Improve SEO to gain approximately 300 more visitors/month",
+      "Improve conversions to increase sales by up to 35%",
+      "Potential revenue increase: $755.0/month"
+    ]
+  },
+  "business_logic": [
+    {
+      "category": "Sensitive Endpoint Exposure",
+      "severity": "High",
+      "details": [
+        {
+          "path": "/admin",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/dashboard",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/api",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/graphql",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/swagger",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/actuator",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/env",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/heapdump",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/debug",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/test",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/staging",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/dev",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/qa",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/backup",
+          "status": 403,
+          "exposed": false
+        },
+        {
+          "path": "/config",
+          "status": 403,
+          "exposed": false
+        }
+      ],
+      "description": "Sensitive endpoints may be exposed. Check for admin panels, debug endpoints, or API documentation."
+    }
+  ],
+  "misconfigurations": [
+    {
+      "category": "Debug Endpoint Exposed",
+      "severity": "Medium",
+      "details": [
+        {
+          "endpoint": "/status",
+          "status": 200
+        }
+      ],
+      "description": "Debug/status endpoint /status is exposed. May leak sensitive system information."
+    },
+    {
+      "category": "Server Version Disclosure",
+      "severity": "Low",
+      "details": [
+        {
+          "server": "cloudflare"
+        }
+      ],
+      "description": "Server version cloudflare is exposed. This helps attackers identify vulnerabilities."
+    }
+  ],
+  "advanced_headers": {
+    "csp": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "High",
+          "description": "Content-Security-Policy header missing - XSS prevention is limited"
+        }
+      ]
+    },
+    "cors": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "Medium",
+          "description": "CORS headers missing - API access may be restricted but also may cause issues"
+        }
+      ]
+    },
+    "permissions_policy": {
+      "present": true,
+      "permissions": {
+        "accelerometer": "()",
+        "camera": "()",
+        "clipboard-read": "()",
+        "clipboard-write": "()",
+        "geolocation": "()",
+        "gyroscope": "()",
+        "hid": "()",
+        "magnetometer": "()",
+        "microphone": "()",
+        "payment": "()",
+        "publickey-credentials-get": "()",
+        "screen-wake-lock": "()",
+        "serial": "()",
+        "sync-xhr": "()",
+        "usb": "()",
+        "xr-spatial-tracking": "*"
+      },
+      "weaknesses": []
+    },
+    "issues": []
+  },
+  "cloud_issues": [],
+  "exploit_chains": [],
+  "js_secrets": [],
+  "ssrf_indicators": [],
+  "cve_matches": [
+    {
+      "technology": "cloudflare",
+      "cve_id": "CVE-2017-7235",
+      "description": "An issue was discovered in cloudflare-scrape 1.6.6 through 1.7.1. A malicious website owner could craft a page that executes arbitrary Python code against any cfscrape user who scrapes that website. This is fixed in 1.8.0.",
+      "cvss_score": 8.8
+    },
+    {
+      "technology": "cloudflare",
+      "cve_id": "CVE-2019-10842",
+      "description": "Arbitrary code execution (via backdoor code) was discovered in bootstrap-sass 3.2.0.3, when downloaded from rubygems.org. An unauthenticated attacker can craft the ___cfduid cookie value with base64 arbitrary code to be executed via eval(), which can",
+      "cvss_score": 9.8
+    },
+    {
+      "technology": "cloudflare",
+      "cve_id": "CVE-2020-15236",
+      "description": "In Wiki.js before version 2.5.151, directory traversal outside of Wiki.js context is possible when a storage module with local asset cache fetching is enabled. A malicious user can potentially read any file on the file system by crafting a special UR",
+      "cvss_score": 8.6
+    }
+  ],
+  "scores": {
+    "seo": 0.0,
+    "security": 0.0,
+    "performance": 0.0,
+    "overall": 0.0
+  },
+  "recommendations": [],
+  "advanced_security": {
+    "ssl_certificate": {
+      "issued_to": "chatgpt.com",
+      "issued_by": "US",
+      "expiry_date": "2026-10-21",
+      "days_remaining": 63,
+      "is_valid": true,
+      "expired": false,
+      "expiring_soon": false
+    },
+    "malware_check": {
+      "status": "Clean",
+      "details": [
+        "No malware signatures detected"
+      ]
+    },
+    "blacklist_check": {
+      "status": "Clean",
+      "details": [
+        "Not found on blacklists"
+      ]
+    },
+    "sql_injection": {
+      "vulnerable": false,
+      "details": [
+        "No query parameters to test"
+      ]
+    },
+    "xss": {
+      "vulnerable": true,
+      "details": [
+        "Potential XSS vulnerability detected"
+      ]
+    },
+    "security_headers": {
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-Content-Type-Options": "nosniff",
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+      "Content-Security-Policy": "Missing",
+      "X-XSS-Protection": "Missing",
+      "Referrer-Policy": "same-origin",
+      "Permissions-Policy": "accelerometer=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=(),xr-spatial-tracking=*"
+    },
+    "email_security": {
+      "SPF": "Found",
+      "DMARC": "Found",
+      "DKIM": "Found"
+    },
+    "open_ports": [
+      80,
+      443
+    ],
+    "sensitive_files": [
+      {
+        "path": "/.well-known/security.txt",
+        "status": 200,
+        "size_bytes": 1273,
+        "likely_real": true
+      }
+    ],
+    "open_redirect": [],
+    "ssrf_indicators": [],
+    "jwt_analysis": [],
+    "critical_issues": [
+      "XSS vulnerability detected - user data at risk",
+      "1 sensitive file(s)/path(s) appear exposed - possible credential or source leak"
+    ],
+    "warnings": [
+      "Content-Security-Policy header missing - XSS prevention limited"
+    ]
+  },
+  "recon": {
+    "domain": "chatgpt.com",
+    "subdomains": [
+      "gov-demo.chatgpt.com",
+      "realtime.chatgpt.com",
+      "chatgpt-async-webps-prod-centralus-2.chatgpt.com",
+      "chatgpt-async-webps-staging-southcentralus-0.chatgpt.com",
+      "owa.chatgpt.com",
+      "gateway.chatgpt.com",
+      "desktop.chatgpt.com",
+      "chatgpt-async-webps-prod-eastus-5-9e29c0310a29a59b.chatgpt.com",
+      "webrtc-staging.chatgpt.com",
+      "autoconfig.chatgpt.com",
+      "gov.chatgpt.com",
+      "chatgpt-async-webps-prod-eastus-5.chatgpt.com",
+      "stats.ab.chatgpt.com",
+      "chatgpt-async-webps-prod-southcentralus-4.chatgpt.com",
+      "operator.chatgpt.com",
+      "learn.chatgpt.com",
+      "privacy-pass-issuer.api.chatgpt.com",
+      "chatgpt-async-webps-prod-westus-1-9e29c0310a29a59b.chatgpt.com",
+      "chatgpt-async-webps-prod-westus-1.chatgpt.com",
+      "chatgpt-async-webps-prod-eastus-3-9e29c0310a29a59b.chatgpt.com",
+      "status.chatgpt.com",
+      "chatgpt-async-webps-prod-southcentralus-5.chatgpt.com",
+      "chatgpt-async-webps-prod-westus-5-9e29c0310a29a59b.chatgpt.com",
+      "hooks-staging.chatgpt.com",
+      "ns1.ab.chatgpt.com",
+      "chatgpt-async-webps-prod-eastus-0.chatgpt.com",
+      "chatgpt-async-webps-prod-westus-4-9e29c0310a29a59b.chatgpt.com",
+      "internal.chatgpt.com",
+      "chatgpt-async-webps-prod-eastus-0-9e29c0310a29a59b.chatgpt.com",
+      "chatgpt-async-webps-prod-eastus-1.chatgpt.com",
+      "chatgpt-async-webps-prod-eastus-4.chatgpt.com",
+      "snc.chatgpt.com",
+      "chatgpt-async-webps-prod-westus-2-9e29c0310a29a59b.chatgpt.com",
+      "url7551.codex.chatgpt.com",
+      "api.chatgpt.com",
+      "chatgpt-async-webps-prod-eastus-1-9e29c0310a29a59b.chatgpt.com",
+      "chatgpt-async-webps-prod-eastus-3.chatgpt.com",
+      "autodiscover.chatgpt.com",
+      "host.chatgpt.com",
+      "sora.chatgpt.com",
+      "chatgpt-async-webps-prod-westus-3.chatgpt.com",
+      "chatgpt-async-webps-prod-eastus-2-9e29c0310a29a59b.chatgpt.com",
+      "staging.chatgpt.com",
+      "ogimg.chatgpt.com",
+      "chatgpt-async-webps-prod-southcentralus-0.chatgpt.com",
+      "chatgpt-async-webps-prod-southcentralus-1.chatgpt.com",
+      "analytics.chatgpt.com",
+      "chatgpt-async-webps-prod-centralus-4.chatgpt.com",
+      "chatgpt-async-webps-prod-westus-0.chatgpt.com",
+      "chatgpt-async-webps-prod-westus-4.chatgpt.com",
+      "chatgpt-async-webps-prod-centralus-5.chatgpt.com",
+      "ws.chatgpt.com",
+      "mx.ab.chatgpt.com",
+      "chatgpt-async-webps-prod-eastus-2.chatgpt.com",
+      "chatgpt-async-webps-prod-southcentralus-2.chatgpt.com",
+      "search.chatgpt.com",
+      "chatgpt-async-webps-prod-eastus-4-9e29c0310a29a59b.chatgpt.com",
+      "ab.chatgpt.com",
+      "chatgpt-async-webps-prod-centralus-0.chatgpt.com",
+      "chatgpt-async-webps-prod-westus-0-9e29c0310a29a59b.chatgpt.com",
+      "chatgpt-async-webps-prod-westus-3-9e29c0310a29a59b.chatgpt.com",
+      "chatgpt-async-webps-staging-eastus-0.chatgpt.com",
+      "jam.chatgpt.com",
+      "chatgpt-async-webps-prod-westus-5.chatgpt.com",
+      "k8s.ab.chatgpt.com",
+      "edge.chatgpt.com",
+      "chatgpt-async-webps-prod-southcentralus-3.chatgpt.com",
+      "chatgpt-async-webps-prod-westus-2.chatgpt.com",
+      "amb-staging.chatgpt.com",
+      "ns2.chatgpt.com",
+      "chatgpt-async-webps-prod-centralus-1.chatgpt.com",
+      "chatgpt-async-webps-prod-centralus-3.chatgpt.com",
+      "webrtc.chatgpt.com",
+      "www.chatgpt.com"
+    ],
+    "urls": [],
+    "open_ports": [],
+    "technologies": {
+      "server": [
+        "cloudflare"
+      ],
+      "frameworks": [],
+      "javascript_libraries": [],
+      "cms": [],
+      "cloud": [
+        "Cloudflare"
+      ],
+      "analytics": []
+    },
+    "summary": {
+      "subdomains_found": 74,
+      "urls_found": 0,
+      "open_ports": 0
+    }
+  }
+}

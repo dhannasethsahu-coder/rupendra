@@ -1,0 +1,265 @@
+{
+  "url": "https://example.com",
+  "timestamp": "2026-08-19T11:55:23.823419",
+  "seo_analysis": {
+    "title": "Example Domain",
+    "meta_description": "Missing",
+    "h1_count": 1,
+    "h1_content": [
+      "Example Domain"
+    ],
+    "total_images": 0,
+    "images_with_alt": 0,
+    "internal_links": 0,
+    "external_links": 1,
+    "mobile_friendly": true
+  },
+  "security_analysis": {
+    "has_ssl": true,
+    "X-Frame-Options": false,
+    "X-Content-Type-Options": false,
+    "Strict-Transport-Security": false
+  },
+  "performance_analysis": {
+    "load_time": 0.11,
+    "page_size_kb": 0.55,
+    "compression": true
+  },
+  "accessibility_analysis": {
+    "alt_text_missing": 0,
+    "heading_issues": [
+      "h1 exists but no h2 found - consider adding subheadings"
+    ],
+    "color_contrast_issues": [],
+    "aria_issues": [
+      "No ARIA labels found - consider adding them for accessibility",
+      "Found vague link text - consider using more descriptive text"
+    ],
+    "keyboard_issues": [],
+    "score": 74
+  },
+  "ux_analysis": {
+    "broken_links": [],
+    "console_errors": [],
+    "mobile_issues": [],
+    "page_weight": 0.55,
+    "render_blocking": [],
+    "issues": []
+  },
+  "cro_analysis": {
+    "cta_count": 0,
+    "cta_texts": [],
+    "trust_signals": [],
+    "forms": 0,
+    "checkout_steps": 0,
+    "issues": [],
+    "recommendations": [
+      "Add more clear calls-to-action to guide visitors through your sales funnel",
+      "Add trust signals (testimonials, reviews, guarantees) to build customer confidence",
+      "Add a lead capture form to convert visitors into leads"
+    ]
+  },
+  "competitor_analysis": {},
+  "business_impact": {
+    "traffic_loss": 300,
+    "conversion_loss": 35,
+    "revenue_loss": 755.0,
+    "risk_level": "High",
+    "opportunities": [
+      "Improve SEO to gain approximately 300 more visitors/month",
+      "Improve conversions to increase sales by up to 35%",
+      "Potential revenue increase: $755.0/month"
+    ]
+  },
+  "business_logic": [],
+  "misconfigurations": [
+    {
+      "category": "Server Version Disclosure",
+      "severity": "Low",
+      "details": [
+        {
+          "server": "cloudflare"
+        }
+      ],
+      "description": "Server version cloudflare is exposed. This helps attackers identify vulnerabilities."
+    }
+  ],
+  "advanced_headers": {
+    "csp": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "High",
+          "description": "Content-Security-Policy header missing - XSS prevention is limited"
+        }
+      ]
+    },
+    "cors": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "Medium",
+          "description": "CORS headers missing - API access may be restricted but also may cause issues"
+        }
+      ]
+    },
+    "permissions_policy": {
+      "present": false,
+      "weaknesses": [
+        {
+          "type": "missing",
+          "severity": "Low",
+          "description": "Permissions-Policy header missing - browser features may be abused"
+        }
+      ]
+    },
+    "issues": [
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "HSTS missing - HTTPS not enforced",
+        "header": "Strict-Transport-Security"
+      },
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "X-Content-Type-Options missing - MIME sniffing possible",
+        "header": "X-Content-Type-Options"
+      },
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "X-Frame-Options missing - clickjacking possible",
+        "header": "X-Frame-Options"
+      },
+      {
+        "type": "missing",
+        "severity": "Medium",
+        "description": "Referrer-Policy missing - referrer leakage possible",
+        "header": "Referrer-Policy"
+      }
+    ]
+  },
+  "cloud_issues": [],
+  "exploit_chains": [],
+  "js_secrets": [],
+  "ssrf_indicators": [],
+  "cve_matches": [
+    {
+      "technology": "cloudflare",
+      "cve_id": "CVE-2017-7235",
+      "description": "An issue was discovered in cloudflare-scrape 1.6.6 through 1.7.1. A malicious website owner could craft a page that executes arbitrary Python code against any cfscrape user who scrapes that website. This is fixed in 1.8.0.",
+      "cvss_score": 8.8
+    },
+    {
+      "technology": "cloudflare",
+      "cve_id": "CVE-2019-10842",
+      "description": "Arbitrary code execution (via backdoor code) was discovered in bootstrap-sass 3.2.0.3, when downloaded from rubygems.org. An unauthenticated attacker can craft the ___cfduid cookie value with base64 arbitrary code to be executed via eval(), which can",
+      "cvss_score": 9.8
+    },
+    {
+      "technology": "cloudflare",
+      "cve_id": "CVE-2020-15236",
+      "description": "In Wiki.js before version 2.5.151, directory traversal outside of Wiki.js context is possible when a storage module with local asset cache fetching is enabled. A malicious user can potentially read any file on the file system by crafting a special UR",
+      "cvss_score": 8.6
+    }
+  ],
+  "scores": {
+    "seo": 0.0,
+    "security": 0.0,
+    "performance": 0.0,
+    "overall": 0.0
+  },
+  "recommendations": [],
+  "advanced_security": {
+    "ssl_certificate": {
+      "issued_to": "example.com",
+      "issued_by": "US",
+      "expiry_date": "2026-10-27",
+      "days_remaining": 69,
+      "is_valid": true,
+      "expired": false,
+      "expiring_soon": false
+    },
+    "malware_check": {
+      "status": "Clean",
+      "details": [
+        "No malware signatures detected"
+      ]
+    },
+    "blacklist_check": {
+      "status": "Clean",
+      "details": [
+        "Not found on blacklists"
+      ]
+    },
+    "sql_injection": {
+      "vulnerable": false,
+      "details": [
+        "No query parameters to test"
+      ]
+    },
+    "xss": {
+      "vulnerable": false,
+      "details": [
+        "No XSS vulnerabilities detected"
+      ]
+    },
+    "security_headers": {
+      "X-Frame-Options": "Missing",
+      "X-Content-Type-Options": "Missing",
+      "Strict-Transport-Security": "Missing",
+      "Content-Security-Policy": "Missing",
+      "X-XSS-Protection": "Missing",
+      "Referrer-Policy": "Missing",
+      "Permissions-Policy": "Missing"
+    },
+    "email_security": {
+      "SPF": "Found",
+      "DMARC": "Found",
+      "DKIM": "Found"
+    },
+    "open_ports": [
+      80,
+      443
+    ],
+    "sensitive_files": [],
+    "open_redirect": [],
+    "ssrf_indicators": [],
+    "jwt_analysis": [],
+    "critical_issues": [],
+    "warnings": [
+      "X-Frame-Options header missing - site is vulnerable to clickjacking",
+      "X-Content-Type-Options header missing - MIME type sniffing possible",
+      "Content-Security-Policy header missing - XSS prevention limited",
+      "HSTS header missing - no enforcement of HTTPS"
+    ]
+  },
+  "recon": {
+    "domain": "example.com",
+    "subdomains": [
+      "www.example.com"
+    ],
+    "urls": [],
+    "open_ports": [],
+    "technologies": {
+      "server": [
+        "cloudflare"
+      ],
+      "frameworks": [],
+      "javascript_libraries": [],
+      "cms": [],
+      "cloud": [
+        "Cloudflare"
+      ],
+      "analytics": []
+    },
+    "summary": {
+      "subdomains_found": 1,
+      "urls_found": 0,
+      "open_ports": 0
+    }
+  }
+}
