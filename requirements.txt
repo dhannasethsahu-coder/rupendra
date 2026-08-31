@@ -10,6 +10,3 @@ python-whois==0.8.0
 lxml==4.9.3
 
 
-📱 Online: Visit www.asurion.com/claims/att 📞 Phone: Call Asurion directly at 888 562 8662 or 800 288 2020
-
-
