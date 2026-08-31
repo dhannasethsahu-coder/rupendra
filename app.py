@@ -1,6 +1,5 @@
 from dotenv import load_dotenv
 # New imports for enhanced features
-import accessibility_checker
 from readability import Document
 import colorama
 import concurrent.futures
