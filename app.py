@@ -2154,6 +2154,9 @@ class SimpleWebsiteAuditor:
 
 def generate_html_report(results):
     """Generate a complete professional HTML report with all sections"""
+    # Escape URL for safe use in HTML/JavaScript
+    safe_url = results['url'].replace('https://', '').replace('http://', '').replace('/', '')
+    
     html = f"""
     <!DOCTYPE html>
     <html>
@@ -2198,7 +2201,7 @@ def generate_html_report(results):
             table {{ width: 100%; border-collapse: collapse; margin: 10px 0; }}
             th, td {{ padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }}
             th {{ background: #f1f1f1; font-weight: bold; }}
-            .footer {{ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-top: 30px; }}
+            .footer {{ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 12px; text-align: center; margin-top: 30px; }}
             .footer .btn {{ background: white; color: #667eea; padding: 12px 30px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; text-decoration: none; display: inline-block; font-weight: bold; }}
             .text-success {{ color: #28a745; }}
             .text-danger {{ color: #dc3545; }}
@@ -2401,12 +2404,12 @@ def generate_html_report(results):
             </div>
         """
     
-    # Footer
-    html += """
+    # Footer with CTA - Updated with your email
+    html += f"""
             <div class="footer">
                 <h2>🚀 Ready to Fix These Issues?</h2>
-                <p>Contact us for a free consultation!</p>
-                <a href="#" class="btn">Get a Quote</a>
+                <p style="font-size:18px;margin-bottom:20px;">Get expert help to improve your website's performance and security.</p>
+                <a href="mailto:dhannasethsahu@gmail.com?subject=Website Audit Report - Free Consultation for {safe_url}&body=Hi there,%0A%0AI just ran a website audit and would like to schedule a free consultation to discuss the results.%0A%0AWebsite: {results['url']}%0A%0APlease let me know when you're available.%0A%0AThanks!" class="btn">📞 Get a Free Quote</a>
             </div>
         </div>
     </body>
@@ -2416,79 +2419,8 @@ def generate_html_report(results):
     return html
 
 
-
-    def generate_recommendations(self, results):
-        """Generate recommendations based on findings"""
-        recommendations = []
-        
-        seo = results.get('seo_analysis', {})
-        if seo.get('title') and 'Missing' in seo['title']:
-            recommendations.append({
-                'category': 'SEO',
-                'priority': 'High',
-                'description': 'Add a title tag to your website - this is crucial for search engines',
-                'effort': 'Low'
-            })
-        
-        if seo.get('meta_description') and 'Missing' in seo['meta_description']:
-            recommendations.append({
-                'category': 'SEO',
-                'priority': 'High',
-                'description': 'Add a meta description to improve click-through rates from search results',
-                'effort': 'Low'
-            })
-        
-        if seo.get('h1_count', 0) == 0:
-            recommendations.append({
-                'category': 'SEO',
-                'priority': 'Medium',
-                'description': 'Add an H1 heading to help search engines understand your page content',
-                'effort': 'Low'
-            })
-        
-        total_images = seo.get('total_images', 0)
-        if total_images > 0:
-            with_alt = seo.get('images_with_alt', 0)
-            without_alt = total_images - with_alt
-            if without_alt > 0:
-                recommendations.append({
-                    'category': 'SEO',
-                    'priority': 'Medium',
-                    'description': f'Add alt text to {without_alt} images for better accessibility and SEO',
-                    'effort': 'Medium'
-                })
-        
-        security = results.get('security_analysis', {})
-        if not security.get('has_ssl'):
-            recommendations.append({
-                'category': 'Security',
-                'priority': 'Critical',
-                'description': 'Install an SSL certificate to secure your website and build trust',
-                'effort': 'Low'
-            })
-        
-        performance = results.get('performance_analysis', {})
-        if performance.get('load_time', 10) > 3:
-            recommendations.append({
-                'category': 'Performance',
-                'priority': 'High',
-                'description': f'Your page loads in {performance["load_time"]}s - optimize for faster loading',
-                'effort': 'Medium'
-            })
-        
-        if not performance.get('compression'):
-            recommendations.append({
-                'category': 'Performance',
-                'priority': 'Medium',
-                'description': 'Enable GZIP compression to reduce page size and speed up loading',
-                'effort': 'Low'
-            })
-        
-        return recommendations
-
-
 def generate_business_report(results):
-    """Generate a business-focused report - no technical jargon, just impact"""
+    """Generate a business-focused report with working form using Formspree"""
     
     # Extract key data
     url = results.get('url', 'Unknown')
@@ -2521,8 +2453,11 @@ def generate_business_report(results):
     accessibility = results.get('accessibility_analysis', {})
     alt_missing = accessibility.get('alt_text_missing', 0)
     
+    # Escape URL for safe use in JavaScript
+    safe_url_for_js = url.replace('https://', '').replace('http://', '').replace('/', '').replace("'", "\\'")
+    
     # ============================================
-    # BUSINESS IMPACT STATEMENTS (No Jargon)
+    # BUSINESS IMPACT STATEMENTS
     # ============================================
     business_impact_statements = []
     
@@ -2550,153 +2485,378 @@ def generate_business_report(results):
     if critical_security:
         business_impact_statements.append(f"🔒 {len(critical_security)} security risks that put your business and customers in danger")
 
+    if not business_impact_statements:
+        business_impact_statements.append("✅ Your website is performing well! Here are some opportunities to grow further.")
+
     # ============================================
-    # HTML REPORT - BUSINESS FOCUSED
+    # HTML REPORT - WITH FORMSPREE FORM
     # ============================================
-    html = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Business Growth Report - {url}</title>
-        <style>
-            * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-            body {{ font-family: 'Segoe UI', Arial, sans-serif; padding: 20px; background: #f0f2f5; }}
-            .container {{ max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
+    html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Growth Report - {safe_url_for_js}</title>
+    <style>
+        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        body {{ font-family: 'Segoe UI', Arial, sans-serif; padding: 20px; background: #f0f2f5; }}
+        .container {{ max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
+        
+        .header {{ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 30px; text-align: center; }}
+        .header h1 {{ font-size: 28px; margin-bottom: 5px; }}
+        .header .subtitle {{ font-size: 16px; opacity: 0.8; }}
+        .header .website {{ font-size: 20px; font-weight: bold; margin: 10px 0; }}
+        .header .date {{ font-size: 14px; opacity: 0.7; }}
+        
+        .score-ring {{ text-align: center; margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 12px; }}
+        .score-ring .big-number {{ font-size: 72px; font-weight: bold; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }}
+        .score-ring .label {{ font-size: 18px; color: #666; }}
+        .score-ring .sub-label {{ font-size: 14px; color: #999; margin-top: 5px; }}
+        
+        .impact-grid {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 20px 0; }}
+        .impact-card {{ background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center; }}
+        .impact-card .icon {{ font-size: 30px; }}
+        .impact-card .number {{ font-size: 28px; font-weight: bold; color: #1a1a2e; }}
+        .impact-card .label {{ font-size: 14px; color: #666; }}
+        
+        .statements {{ background: #e8f4fd; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #0f3460; }}
+        .statements h3 {{ color: #0f3460; margin-bottom: 10px; }}
+        .statements li {{ list-style: none; padding: 8px 0; border-bottom: 1px solid #d4e4f0; }}
+        .statements li:last-child {{ border-bottom: none; }}
+        
+        .section {{ margin: 25px 0; padding: 20px; background: #f8f9fa; border-radius: 10px; }}
+        .section h2 {{ color: #1a1a2e; margin-bottom: 15px; font-size: 20px; }}
+        
+        .priority-grid {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }}
+        .priority-item {{ background: white; padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }}
+        .priority-item .count {{ font-size: 36px; font-weight: bold; }}
+        .priority-item .label {{ font-size: 14px; color: #666; }}
+        .priority-critical .count {{ color: #dc3545; }}
+        .priority-high .count {{ color: #fd7e14; }}
+        .priority-medium .count {{ color: #ffc107; }}
+        
+        .issue-item {{ background: white; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #667eea; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }}
+        .issue-item .title {{ font-weight: bold; }}
+        .issue-item .impact {{ font-size: 14px; color: #666; margin-top: 5px; }}
+        .issue-critical {{ border-left-color: #dc3545; }}
+        .issue-high {{ border-left-color: #fd7e14; }}
+        .issue-medium {{ border-left-color: #ffc107; }}
+        
+        .opportunity {{ background: #d4edda; padding: 15px; border-radius: 8px; margin: 5px 0; border-left: 4px solid #28a745; }}
+        
+        /* Form Styles */
+        .footer {{ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 40px; border-radius: 12px; text-align: center; margin-top: 30px; }}
+        .footer h2 {{ color: white; margin-bottom: 10px; }}
+        .footer p {{ margin: 10px 0; opacity: 0.9; }}
+        
+        .consultation-form {{ max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 30px; border-radius: 12px; text-align: left; }}
+        .consultation-form label {{ display: block; margin-bottom: 5px; font-size: 14px; font-weight: 600; color: white; }}
+        .consultation-form input, .consultation-form select {{ 
+            width: 100%; padding: 12px; border: none; border-radius: 6px; 
+            font-size: 14px; background: white; color: #333;
+            margin-bottom: 15px;
+            transition: box-shadow 0.3s;
+        }}
+        .consultation-form input:focus, .consultation-form select:focus {{
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
+        }}
+        .consultation-form input[readonly] {{
+            background: #e9ecef; color: #555; cursor: not-allowed;
+        }}
+        .consultation-form .btn-submit {{
+            background: white; color: #1a1a2e; padding: 14px 40px;
+            border: none; border-radius: 6px; font-size: 17px;
+            cursor: pointer; font-weight: bold; width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }}
+        .consultation-form .btn-submit:hover {{
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+        }}
+        .consultation-form .btn-submit:active {{
+            transform: scale(0.98);
+        }}
+        .consultation-form .btn-submit.loading {{
+            opacity: 0.7;
+            cursor: not-allowed;
+        }}
+        .privacy-note {{ margin-top: 12px; font-size: 12px; opacity: 0.8; text-align: center; color: rgba(255,255,255,0.8); }}
+        
+        /* SUCCESS POPUP */
+        .success-overlay {{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 999999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }}
+        .success-overlay.active {{
+            display: flex;
+        }}
+        .success-box {{
+            background: white;
+            max-width: 500px;
+            width: 90%;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: scaleIn 0.4s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }}
+        .success-box .icon {{ font-size: 72px; margin-bottom: 10px; }}
+        .success-box h2 {{ color: #1a1a2e; margin-bottom: 10px; }}
+        .success-box p {{ color: #555; line-height: 1.6; margin: 8px 0; }}
+        .success-box .details {{
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: left;
+        }}
+        .success-box .details p {{ margin: 5px 0; font-size: 14px; }}
+        .success-box .details strong {{ color: #333; display: inline-block; width: 80px; }}
+        .success-box .whats-next {{
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: left;
+        }}
+        .success-box .whats-next h3 {{ color: #0f3460; font-size: 16px; margin-bottom: 8px; }}
+        .success-box .whats-next li {{ padding: 4px 0; list-style: none; color: #333; font-size: 14px; }}
+        .success-box .whats-next li::before {{ content: "✅ "; }}
+        .success-box .btn-close {{
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.2s;
+        }}
+        .success-box .btn-close:hover {{ transform: scale(1.05); }}
+        
+        /* Error popup */
+        .error-overlay {{
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 999999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }}
+        .error-overlay.active {{ display: flex; }}
+        .error-box {{
+            background: white;
+            max-width: 400px;
+            width: 90%;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }}
+        .error-box .icon {{ font-size: 48px; }}
+        .error-box h2 {{ color: #dc3545; margin: 10px 0; }}
+        .error-box p {{ color: #555; line-height: 1.6; }}
+        .error-box .btn-close {{
+            background: #dc3545;
+            color: white;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }}
+        
+        /* Toast */
+        .toast {{
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #28a745;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: none;
+            z-index: 999999;
+            font-weight: bold;
+            animation: slideUp 0.3s ease;
+        }}
+        .toast.show {{ display: block; }}
+        .toast.error {{ background: #dc3545; }}
+        
+        @keyframes fadeIn {{
+            from {{ opacity: 0; }}
+            to {{ opacity: 1; }}
+        }}
+        @keyframes scaleIn {{
+            from {{ transform: scale(0.8); opacity: 0; }}
+            to {{ transform: scale(1); opacity: 1; }}
+        }}
+        @keyframes slideUp {{
+            from {{ transform: translateY(100px); opacity: 0; }}
+            to {{ transform: translateY(0); opacity: 1; }}
+        }}
+        
+        @media print {{ body {{ background: white; padding: 0; }} .container {{ box-shadow: none; }} }}
+        
+        /* Loading spinner */
+        .spinner {{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s ease infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+        }}
+        @keyframes spin {{
+            to {{ transform: rotate(360deg); }}
+        }}
+    </style>
+</head>
+<body>
+
+    <!-- SUCCESS POPUP -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-box">
+            <div class="icon">✅</div>
+            <h2>Thank You! 🎉</h2>
+            <p>Your consultation request has been received successfully.</p>
             
-            .header {{ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 30px; text-align: center; }}
-            .header h1 {{ font-size: 28px; margin-bottom: 5px; }}
-            .header .subtitle {{ font-size: 16px; opacity: 0.8; }}
-            .header .website {{ font-size: 20px; font-weight: bold; margin: 10px 0; }}
-            .header .date {{ font-size: 14px; opacity: 0.7; }}
-            
-            .score-ring {{ text-align: center; margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 12px; }}
-            .score-ring .big-number {{ font-size: 72px; font-weight: bold; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }}
-            .score-ring .label {{ font-size: 18px; color: #666; }}
-            .score-ring .sub-label {{ font-size: 14px; color: #999; margin-top: 5px; }}
-            
-            .impact-grid {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 20px 0; }}
-            .impact-card {{ background: #f8f9fa; padding: 20px; border-radius: 10px; text-align: center; }}
-            .impact-card .icon {{ font-size: 30px; }}
-            .impact-card .number {{ font-size: 28px; font-weight: bold; color: #1a1a2e; }}
-            .impact-card .label {{ font-size: 14px; color: #666; }}
-            
-            .statements {{ background: #e8f4fd; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #0f3460; }}
-            .statements h3 {{ color: #0f3460; margin-bottom: 10px; }}
-            .statements li {{ list-style: none; padding: 8px 0; border-bottom: 1px solid #d4e4f0; }}
-            .statements li:last-child {{ border-bottom: none; }}
-            
-            .section {{ margin: 25px 0; padding: 20px; background: #f8f9fa; border-radius: 10px; }}
-            .section h2 {{ color: #1a1a2e; margin-bottom: 15px; font-size: 20px; }}
-            
-            .priority-grid {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }}
-            .priority-item {{ background: white; padding: 15px; border-radius: 8px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }}
-            .priority-item .count {{ font-size: 36px; font-weight: bold; }}
-            .priority-item .label {{ font-size: 14px; color: #666; }}
-            .priority-critical .count {{ color: #dc3545; }}
-            .priority-high .count {{ color: #fd7e14; }}
-            .priority-medium .count {{ color: #ffc107; }}
-            
-            .issue-item {{ background: white; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #667eea; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }}
-            .issue-item .title {{ font-weight: bold; }}
-            .issue-item .impact {{ font-size: 14px; color: #666; margin-top: 5px; }}
-            .issue-critical {{ border-left-color: #dc3545; }}
-            .issue-high {{ border-left-color: #fd7e14; }}
-            .issue-medium {{ border-left-color: #ffc107; }}
-            
-            .opportunity {{ background: #d4edda; padding: 15px; border-radius: 8px; margin: 5px 0; border-left: 4px solid #28a745; }}
-            
-            .footer {{ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 30px; border-radius: 12px; text-align: center; margin-top: 30px; }}
-            .footer .btn {{ background: white; color: #1a1a2e; padding: 12px 40px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; text-decoration: none; display: inline-block; font-weight: bold; }}
-            .footer p {{ margin: 10px 0; opacity: 0.9; }}
-            
-            @media print {{ body {{ background: white; padding: 0; }} .container {{ box-shadow: none; }} }}
-            .text-center {{ text-align: center; }}
-            .mt-10 {{ margin-top: 10px; }}
-            .mb-10 {{ margin-bottom: 10px; }}
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <!-- Header -->
-            <div class="header">
-                <p class="subtitle">📊 BUSINESS GROWTH REPORT</p>
-                <h1>How to Grow Your Online Revenue</h1>
-                <div class="website">{url}</div>
-                <div class="date">Generated: {timestamp[:10] if timestamp else 'Today'}</div>
+            <div class="details" id="submissionDetails">
+                <p><strong>Name:</strong> <span id="confirmName">-</span></p>
+                <p><strong>Email:</strong> <span id="confirmEmail">-</span></p>
+                <p><strong>Phone:</strong> <span id="confirmPhone">-</span></p>
+                <p><strong>Website:</strong> <span id="confirmWebsite">-</span></p>
+                <p><strong>Challenge:</strong> <span id="confirmChallenge">-</span></p>
             </div>
             
-            <!-- Overall Score -->
-            <div class="score-ring">
-                <div class="big-number">{overall:.0f}</div>
-                <div class="label">Your Website Performance Score</div>
-                <div class="sub-label">Out of 100</div>
+            <div class="whats-next">
+                <h3>📋 What Happens Next?</h3>
+                <li>We'll review your website analysis</li>
+                <li>Our team will contact you within 24 hours</li>
+                <li>We'll schedule your free consultation call</li>
+                <li>You'll get a customized growth strategy</li>
             </div>
             
-            <!-- Quick Impact Summary -->
-            <div class="impact-grid">
-                <div class="impact-card">
-                    <div class="icon">📈</div>
-                    <div class="number">+{traffic_potential}</div>
-                    <div class="label">Potential New Visitors (Monthly)</div>
-                </div>
-                <div class="impact-card">
-                    <div class="icon">💰</div>
-                    <div class="number">${revenue_potential:.0f}</div>
-                    <div class="label">Potential Extra Revenue (Monthly)</div>
-                </div>
-                <div class="impact-card">
-                    <div class="icon">🛡️</div>
-                    <div class="number">{risk_level}</div>
-                    <div class="label">Business Risk Level</div>
-                </div>
-            </div>
+            <p style="font-size:14px;color:#888;">📧 We've received your details and will reach out shortly.</p>
             
-            <!-- Business Impact Statements -->
-            <div class="statements">
-                <h3>💡 What This Means for Your Business</h3>
-                <ul>
-    """
+            <button class="btn-close" onclick="closeSuccess()">Continue Viewing Report</button>
+        </div>
+    </div>
+
+    <!-- ERROR POPUP -->
+    <div class="error-overlay" id="errorOverlay">
+        <div class="error-box">
+            <div class="icon">😅</div>
+            <h2>Something went wrong</h2>
+            <p id="errorMessage">We couldn't send your request. Please try again or contact us directly.</p>
+            <button class="btn-close" onclick="closeError()">Try Again</button>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">✅ Consultation request sent successfully!</div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <p class="subtitle">📊 BUSINESS GROWTH REPORT</p>
+            <h1>How to Grow Your Online Revenue</h1>
+            <div class="website">{url}</div>
+            <div class="date">Generated: {timestamp[:10] if timestamp else 'Today'}</div>
+        </div>
+        
+        <!-- Overall Score -->
+        <div class="score-ring">
+            <div class="big-number">{overall:.0f}</div>
+            <div class="label">Your Website Performance Score</div>
+            <div class="sub-label">Out of 100</div>
+        </div>
+        
+        <!-- Quick Impact Summary -->
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="icon">📈</div>
+                <div class="number">+{traffic_potential}</div>
+                <div class="label">Potential New Visitors (Monthly)</div>
+            </div>
+            <div class="impact-card">
+                <div class="icon">💰</div>
+                <div class="number">${revenue_potential:.0f}</div>
+                <div class="label">Potential Extra Revenue (Monthly)</div>
+            </div>
+            <div class="impact-card">
+                <div class="icon">🛡️</div>
+                <div class="number">{risk_level}</div>
+                <div class="label">Business Risk Level</div>
+            </div>
+        </div>
+        
+        <!-- Business Impact Statements -->
+        <div class="statements">
+            <h3>💡 What This Means for Your Business</h3>
+            <ul>
+"""
     
-    if business_impact_statements:
-        for statement in business_impact_statements:
-            html += f"<li>{statement}</li>"
-    else:
-        html += "<li>✅ Your website is performing well! Here are some opportunities to grow further.</li>"
+    for statement in business_impact_statements:
+        html += f"                <li>{statement}</li>\n"
     
-    html += f"""
-                </ul>
-            </div>
-            
-            <!-- Priority Breakdown -->
-            <div class="section">
-                <h2>📊 What Needs Your Attention</h2>
-                <div class="priority-grid">
-                    <div class="priority-item priority-critical">
-                        <div class="count">{critical_count}</div>
-                        <div class="label">🚨 Fix Immediately</div>
-                    </div>
-                    <div class="priority-item priority-high">
-                        <div class="count">{high_count}</div>
-                        <div class="label">⚠️ High Priority</div>
-                    </div>
-                    <div class="priority-item priority-medium">
-                        <div class="count">{medium_count}</div>
-                        <div class="label">📌 Medium Priority</div>
-                    </div>
+    html += f"""            </ul>
+        </div>
+        
+        <!-- Priority Breakdown -->
+        <div class="section">
+            <h2>📊 What Needs Your Attention</h2>
+            <div class="priority-grid">
+                <div class="priority-item priority-critical">
+                    <div class="count">{critical_count}</div>
+                    <div class="label">🚨 Fix Immediately</div>
+                </div>
+                <div class="priority-item priority-high">
+                    <div class="count">{high_count}</div>
+                    <div class="label">⚠️ High Priority</div>
+                </div>
+                <div class="priority-item priority-medium">
+                    <div class="count">{medium_count}</div>
+                    <div class="label">📌 Medium Priority</div>
                 </div>
             </div>
-    """
+        </div>
+"""
     
-    # Add top issues with business impact (non-technical)
+    # Add top issues with business impact
     if recommendations:
         html += """
-            <div class="section">
-                <h2>📋 Business Impact Summary</h2>
-        """
+        <div class="section">
+            <h2>📋 Business Impact Summary</h2>
+"""
         for rec in recommendations[:5]:
             priority_class = f"issue-{rec['priority'].lower()}"
             
-            # Translate technical issues to business impact (NO JARGON)
             business_impact = {
                 'SEO': 'This affects how customers find you on Google',
                 'Security': 'This puts your customers and reputation at risk',
@@ -2710,77 +2870,250 @@ def generate_business_report(results):
             business_desc = business_impact.get(category, 'This affects your business performance')
             
             html += f"""
-                <div class="issue-item {priority_class}">
-                    <div class="title">{rec['description']}</div>
-                    <div class="impact">💡 {business_desc}</div>
-                </div>
-            """
-        html += "</div>"
+            <div class="issue-item {priority_class}">
+                <div class="title">{rec['description']}</div>
+                <div class="impact">💡 {business_desc}</div>
+            </div>
+"""
+        html += """        </div>
+"""
     
     # Key Opportunities
     opportunities = impact.get('opportunities', [])
     if opportunities:
         html += """
-            <div class="section" style="background:#d4edda;">
-                <h2>🚀 Growth Opportunities</h2>
-        """
+        <div class="section" style="background:#d4edda;">
+            <h2>🚀 Growth Opportunities</h2>
+"""
         for opp in opportunities:
-            html += f'<div class="opportunity">✅ {opp}</div>'
-        html += "</div>"
+            html += f'            <div class="opportunity">✅ {opp}</div>\n'
+        html += """        </div>
+"""
     
-    # Security Summary (non-technical)
+    # Security Summary
     if critical_security:
         html += f"""
-            <div class="section" style="background:#f8d7da;">
-                <h2>🔒 Security Risks</h2>
-                <p style="margin-bottom:10px;">Your business faces {len(critical_security)} security risks that could:</p>
-                <ul style="list-style:none;padding:0;">
-        """
+        <div class="section" style="background:#f8d7da;">
+            <h2>🔒 Security Risks</h2>
+            <p style="margin-bottom:10px;">Your business faces {len(critical_security)} security risks that could:</p>
+            <ul style="list-style:none;padding:0;">
+"""
         for issue in critical_security[:3]:
-            html += f'<li style="padding:5px 0;">🔴 {issue}</li>'
-        html += """
-                </ul>
-                <p style="margin-top:10px;font-weight:bold;">Fixing these protects your customers and your reputation.</p>
-            </div>
-        """
+            html += f'                <li style="padding:5px 0;">🔴 {issue}</li>\n'
+        html += """            </ul>
+            <p style="margin-top:10px;font-weight:bold;">Fixing these protects your customers and your reputation.</p>
+        </div>
+"""
     
-    # CTA Summary (business terms)
+    # CTA Summary
     html += f"""
-            <div class="section" style="background:#e8f4fd;">
-                <h2>📈 Sales & Conversion Summary</h2>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
-                    <div style="background:white;padding:15px;border-radius:8px;text-align:center;">
-                        <div style="font-size:36px;font-weight:bold;">{cta_count}</div>
-                        <div style="color:#666;">Ways to take action on your site</div>
-                    </div>
-                    <div style="background:white;padding:15px;border-radius:8px;text-align:center;">
-                        <div style="font-size:36px;font-weight:bold;">{trust_signals}</div>
-                        <div style="color:#666;">Trust-building elements found</div>
-                    </div>
+        <div class="section" style="background:#e8f4fd;">
+            <h2>📈 Sales & Conversion Summary</h2>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;">
+                <div style="background:white;padding:15px;border-radius:8px;text-align:center;">
+                    <div style="font-size:36px;font-weight:bold;">{cta_count}</div>
+                    <div style="color:#666;">Ways to take action on your site</div>
                 </div>
-    """
+                <div style="background:white;padding:15px;border-radius:8px;text-align:center;">
+                    <div style="font-size:36px;font-weight:bold;">{trust_signals}</div>
+                    <div style="color:#666;">Trust-building elements found</div>
+                </div>
+            </div>
+"""
     
     if cta_count < 3:
-        html += '<p style="margin-top:10px;">🟡 Consider adding more ways for customers to take action</p>'
+        html += '            <p style="margin-top:10px;">🟡 Consider adding more ways for customers to take action</p>\n'
     if trust_signals < 2:
-        html += '<p style="margin-top:5px;">🟡 Add reviews or guarantees to build customer trust</p>'
+        html += '            <p style="margin-top:5px;">🟡 Add reviews or guarantees to build customer trust</p>\n'
     
-    html += """
-            </div>
+    html += f"""        </div>
+        
+        <!-- Consultation Form -->
+        <div class="footer">
+            <h2>🚀 Ready to Grow Your Revenue?</h2>
+            <p style="font-size:18px;margin-bottom:20px;">
+                Let's turn these insights into a concrete growth strategy for your business.
+            </p>
             
-            <!-- Call to Action -->
-            <div class="footer">
-                <h2>🚀 Ready to Grow Your Revenue?</h2>
-                <p>We can help you fix these issues and unlock your website's full potential.</p>
-                <p style="font-size:14px;opacity:0.8;">Schedule a free consultation to discuss your personalized growth plan.</p>
-                <br>
-                <a href="#" class="btn">📞 Request a Free Consultation</a>
+            <div class="consultation-form">
+                <form id="consultationForm" method="POST">
+                    <div>
+                        <label for="clientName">Your Name *</label>
+                        <input type="text" id="clientName" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div>
+                        <label for="clientEmail">Email Address *</label>
+                        <input type="email" id="clientEmail" name="email" placeholder="john@company.com" required>
+                    </div>
+                    <div>
+                        <label for="clientPhone">Phone Number</label>
+                        <input type="tel" id="clientPhone" name="phone" placeholder="+1 234 567 8900">
+                    </div>
+                    <div>
+                        <label for="clientWebsite">Your Website</label>
+                        <input type="text" id="clientWebsite" name="website" value="{url}" readonly>
+                    </div>
+                    <div>
+                        <label for="clientChallenge">What's your biggest challenge?</label>
+                        <select id="clientChallenge" name="challenge">
+                            <option value="traffic">Getting more traffic</option>
+                            <option value="conversions">Converting visitors into customers</option>
+                            <option value="security">Security concerns</option>
+                            <option value="speed">Slow website performance</option>
+                            <option value="mobile">Mobile optimization</option>
+                            <option value="other">Something else</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit" id="submitBtn">📞 Get Free Consultation Now</button>
+                    <p class="privacy-note">🔒 Your information is safe and will not be shared</p>
+                </form>
             </div>
-            
         </div>
-    </body>
-    </html>
-    """
+    </div>
+
+    <script>
+        // ============================================
+        // FORMSPREE CONFIGURATION - YOUR FORM ID IS ALREADY SET
+        // ============================================
+        const FORMSPREE_ID = 'xeaqlkrk';  // Your Formspree form ID
+        // ============================================
+        
+        // Form submission handler
+        document.getElementById('consultationForm').addEventListener('submit', async function(e) {{
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="spinner"></span> Sending...';
+            submitBtn.classList.add('loading');
+            
+            try {{
+                // Get form data
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Validate
+                if (!data.name || !data.email) {{
+                    throw new Error('Please fill in all required fields.');
+                }}
+                
+                if (!data.email.includes('@') || !data.email.includes('.')) {{
+                    throw new Error('Please enter a valid email address.');
+                }}
+                
+                // Map challenge for display
+                const challengeMap = {{
+                    'traffic': 'Getting more traffic',
+                    'conversions': 'Converting visitors into customers',
+                    'security': 'Security concerns',
+                    'speed': 'Slow website performance',
+                    'mobile': 'Mobile optimization',
+                    'other': 'Something else'
+                }};
+                
+                const displayData = {{
+                    name: data.name,
+                    email: data.email,
+                    phone: data.phone || 'Not provided',
+                    website: data.website,
+                    challenge: challengeMap[data.challenge] || data.challenge
+                }};
+                
+                // Send to Formspree - YOUR FORM ID IS HERE
+                const response = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {{
+                    method: 'POST',
+                    headers: {{
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    }},
+                    body: JSON.stringify(displayData)
+                }});
+                
+                if (!response.ok) {{
+                    // Get error details if available
+                    let errorMsg = 'Failed to send. Please try again.';
+                    try {{
+                        const errorData = await response.json();
+                        if (errorData.errors && errorData.errors.length > 0) {{
+                            errorMsg = errorData.errors.map(e => e.message).join(', ');
+                        }}
+                    }} catch (parseError) {{
+                        // Keep default message
+                    }}
+                    throw new Error(errorMsg);
+                }}
+                
+                // Success - show confirmation
+                showToast('✅ Consultation request sent successfully!');
+                showSuccess(displayData);
+                
+                // Reset form
+                this.reset();
+                document.getElementById('clientWebsite').value = '{url}';
+                
+            }} catch (error) {{
+                console.error('Form error:', error);
+                showError(error.message || 'Something went wrong. Please try again or contact us directly.');
+            }} finally {{
+                // Restore button
+                submitBtn.innerHTML = originalText;
+                submitBtn.classList.remove('loading');
+            }}
+        }});
+
+        // Show toast notification
+        function showToast(message) {{
+            const toast = document.getElementById('toast');
+            toast.textContent = message || '✅ Consultation request sent successfully!';
+            toast.classList.add('show');
+            setTimeout(() => {{
+                toast.classList.remove('show');
+            }}, 5000);
+        }}
+
+        // Show success popup
+        function showSuccess(data) {{
+            document.getElementById('confirmName').textContent = data.name;
+            document.getElementById('confirmEmail').textContent = data.email;
+            document.getElementById('confirmPhone').textContent = data.phone;
+            document.getElementById('confirmWebsite').textContent = data.website;
+            document.getElementById('confirmChallenge').textContent = data.challenge;
+            
+            document.getElementById('successOverlay').classList.add('active');
+            
+            // Close on backdrop click
+            document.getElementById('successOverlay').onclick = function(e) {{
+                if (e.target === this) {{
+                    closeSuccess();
+                }}
+            }};
+        }}
+
+        // Close success popup
+        function closeSuccess() {{
+            document.getElementById('successOverlay').classList.remove('active');
+        }}
+
+        // Show error popup
+        function showError(message) {{
+            document.getElementById('errorMessage').textContent = message || 'Something went wrong. Please try again.';
+            document.getElementById('errorOverlay').classList.add('active');
+        }}
+
+        // Close error popup
+        function closeError() {{
+            document.getElementById('errorOverlay').classList.remove('active');
+        }}
+
+        console.log('✅ Business Growth Report loaded successfully!');
+        console.log('📝 Formspree ID:', FORMSPREE_ID);
+        console.log('📧 Submissions will be sent to: dhannasethsahu@gmail.com');
+    </script>
+
+</body>
+</html>"""
     
     return html
 
@@ -2990,7 +3323,7 @@ def main():
                 st.warning(f"🔓 Open Ports Detected: {', '.join(map(str, ports))}")
                 st.write("These ports are accessible from the internet and could be security risks.")
 
-            # NEW: Sensitive file exposure
+            # Sensitive file exposure
             sensitive_files = security.get('sensitive_files', [])
             if sensitive_files:
                 st.subheader("📁 Sensitive File / Path Exposure")
@@ -2998,14 +3331,14 @@ def main():
                     tag = "🚨 Likely real" if f.get('likely_real') else "🔵 Check manually (may be a catch-all page)"
                     st.write(f"- `{f['path']}` → HTTP {f['status']}, {f['size_bytes']} bytes — {tag}")
 
-            # NEW: Open redirect
+            # Open redirect
             open_redirect = security.get('open_redirect', [])
             if open_redirect:
                 st.subheader("↪️ Open Redirect")
                 for r in open_redirect:
                     st.warning(f"Parameter `{r['parameter']}` redirected to `{r['redirects_to']}` (HTTP {r['status']})")
 
-            # NEW: JWT analysis
+            # JWT analysis
             jwt_findings = security.get('jwt_analysis', [])
             if jwt_findings:
                 st.subheader("🔑 JWT Analysis")
@@ -3016,7 +3349,7 @@ def main():
         else:
             st.info("No security data available")
 
-        # NEW: JS Secrets Scan
+        # JS Secrets Scan
         st.subheader("🗝️ JavaScript Secret Exposure")
         js_secrets = results.get('js_secrets', [])
         if js_secrets:
@@ -3029,7 +3362,7 @@ def main():
         else:
             st.success("✅ No obvious secrets found in scanned JS files")
 
-        # NEW: SSRF Attack Surface Indicators
+        # SSRF Attack Surface Indicators
         st.subheader("🌐 SSRF Attack-Surface Indicators (passive)")
         ssrf_indicators = results.get('ssrf_indicators', [])
         if ssrf_indicators:
@@ -3039,7 +3372,7 @@ def main():
         else:
             st.info("No obvious SSRF-related parameters detected")
 
-        # NEW: CVE Matches for Detected Technologies
+        # CVE Matches for Detected Technologies
         st.subheader("🧬 Known CVEs for Detected Technologies")
         cve_matches = results.get('cve_matches', [])
         if cve_matches:
@@ -3051,7 +3384,7 @@ def main():
         else:
             st.info("No CVE matches found (or NVD lookup unavailable) — this is not a guarantee the stack is unaffected")
 
-        # NEW: Bug Bounty Recon Results
+        # Bug Bounty Recon Results
         st.subheader("🔍 Bug Bounty Reconnaissance")
         recon = results.get('recon', {})
         if recon:
@@ -3102,7 +3435,7 @@ def main():
         else:
             st.info("No recon data available")
 
-        # NEW: Business Logic Vulnerabilities
+        # Business Logic Vulnerabilities
         st.subheader("🧠 Business Logic Vulnerabilities")
         logic = results.get('business_logic', [])
         if logic:
@@ -3124,7 +3457,7 @@ def main():
         else:
             st.success("✅ No business logic vulnerabilities detected")
         
-        # NEW: Security Misconfigurations
+        # Security Misconfigurations
         st.subheader("⚙️ Security Misconfigurations")
         misconfig = results.get('misconfigurations', [])
         if misconfig:
@@ -3146,7 +3479,7 @@ def main():
         else:
             st.success("✅ No security misconfigurations detected")
         
-        # NEW: Advanced Headers Analysis
+        # Advanced Headers Analysis
         st.subheader("📋 Advanced Headers Analysis")
         headers = results.get('advanced_headers', {})
         if headers and 'error' not in headers:
@@ -3186,7 +3519,7 @@ def main():
         else:
             st.info("No advanced headers data available")
 
-        # NEW: Cloud Misconfigurations
+        # Cloud Misconfigurations
         st.subheader("☁️ Cloud Misconfigurations")
         cloud = results.get('cloud_issues', [])
         if cloud:
@@ -3208,7 +3541,7 @@ def main():
         else:
             st.success("✅ No cloud misconfigurations detected")
         
-        # NEW: Exploit Chains
+        # Exploit Chains
         st.subheader("🔗 Exploit Chains (Critical Risk Combinations)")
         chains = results.get('exploit_chains', [])
         if chains:
